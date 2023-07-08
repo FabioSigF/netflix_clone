@@ -1,0 +1,80 @@
+.movieRow {
+  position: relative;
+  margin-bottom: 2rem;
+
+  h2 {
+    margin-left: 2rem;
+  }
+  &_left,
+  &_right{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: colors(bg-transparent-07);
+    cursor: pointer;
+    font-size: 2rem;
+    position: absolute;
+    width: 40px;
+    height: 225px;
+    opacity: 1;
+    transition: all 300ms ease;
+    &:hover {
+      font-size: 2.5rem;
+    }
+  }
+  &_left{
+    left: 0;
+    z-index: 99;
+  }
+  &_right {
+    right: 0;
+    z-index: 99;
+  }
+
+  &__listarea {
+    padding-left: 2rem;
+    overflow: hidden;
+  }
+  &__list {
+    display: flex;
+    transition: all 500ms ease;
+  }
+  &__item {
+    min-width: 150px;
+    height: 225px;
+    cursor: pointer;
+    & img, & div {
+      width: 100%;
+      height: 100%;
+      transform: scale(0.9);
+      transition: transform 200ms ease-in-out;
+      &:hover {
+        transform: scale(1);
+      }
+    }
+    & div {
+      background-color: colors(text-darkest);
+      display: flex;
+      align-items: center;
+      & p {
+        padding: 0 1rem;
+        color: colors(text);
+      }
+    }
+  }
+}
+
+@include media(medium) {
+  .movieRow{
+    .movieRow_left,
+    .movieRow_right{
+      opacity: 0;
+    }
+    &:hover {
+      .movieRow_left,
+      .movieRow_right{
+        opacity: 1;
+      }
+    }
+  }
+}

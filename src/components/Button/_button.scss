@@ -1,0 +1,16 @@
+.button {
+  display: block;
+  padding: .5rem 1rem;
+  border-radius: 3px;
+  text-align: center;
+  &.button--main {
+    background-color: colors(contrast);
+    color: colors(text);
+  }
+
+  &.button--lg {
+    padding: .875rem 2.25rem;
+    font-size: 1.625rem;
+    border-radius: 0;
+  }
+}

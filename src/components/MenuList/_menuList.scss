@@ -1,0 +1,16 @@
+.menuList {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+  &__link {
+    color: colors(text);
+    transition: color 200ms ease;
+    &.active {
+      font-weight: bold;
+    }
+    &:hover {
+      color: rgba(255, 255, 255, 0.8);
+    }
+  }
+}

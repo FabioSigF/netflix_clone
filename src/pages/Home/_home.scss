@@ -1,0 +1,17 @@
+.lists {
+  margin-top: -150px;
+
+  &--ajust {
+    margin-top: 150px;
+  }
+}
+
+
+@include media(normal) {
+  .lists {
+    margin-top: -55px;
+    &--ajust {
+      margin-top: 120px;
+    }
+  }
+}

@@ -1,0 +1,204 @@
+.menu {
+  display: flex;
+  align-items: center;
+  height: 100%;
+
+  &__logo {
+    height: 25px;
+    margin-right: 3rem;
+    img {
+      height: 100%;
+    }
+  }
+
+  &__list {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  &__link {
+    color: colors(text);
+    transition: color 200ms ease;
+    &.active {
+      font-weight: bold;
+    }
+    &:hover {
+      color: rgba(255, 255, 255, 0.8);
+    }
+  }
+
+  &__user {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+
+    &__icon img{
+      border-radius: 5px;
+      width: 32px;
+      height: 32px;
+    }
+
+    &__profile {
+      gap: .5rem;
+      cursor: pointer;
+      &_btn svg {
+        transition: transform 300ms ease;
+      }
+      &:hover {
+        .menu__user__profile_btn svg{
+          transform: rotate(180deg);
+        }
+        .menu__profile {
+          visibility: visible;
+          opacity: 1;
+        }
+      }
+    }
+
+  }
+  &__kids a {
+    color: colors(text);
+    transition: color 200ms ease;
+    &.active {
+      font-weight: bold;
+    }
+    &:hover {
+      color: rgba(255, 255, 255, 0.8);
+    }
+  }
+  &__notification,
+  &__search {
+    color: colors(text);
+    cursor: pointer;
+  }
+  &__notification {
+    position: relative;
+    font-size: 1.5rem;
+    &:hover {
+      .menu__notification__card{
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+
+    &__alert {
+      border-radius: 50%;
+      justify-content: center;
+      position: absolute;
+      width: 19px;
+      height: 19px;
+      background-color: colors(contrast);
+      font-size: .6rem;
+      top: -5px;
+      right: -5px;
+    }
+    &__card {
+      border: 1px solid colors(text-light);
+      background-color: colors(bg-transparent-07);
+      position: absolute;
+      left: -250px;
+      top: 51px;
+      max-width: 408px;
+      max-height: 350px;
+      overflow-y: scroll;
+      visibility: hidden;
+      opacity: 0;
+      transition: all ease 200ms;
+    }
+    &__item:not(:last-child){
+      border-bottom: 1px solid colors(text-light);
+    }
+    &__item {
+      padding: 1rem;
+    }
+    &__link {
+      color: colors(text);
+    }
+    &__img {
+      max-width: 70px;
+    }
+    &__text {
+      margin-left: 1rem;
+    }
+    &__about {
+      display: block;
+      font-size: .875rem;
+      opacity: .7;
+    }
+    &__title {
+      display: block;
+      font-size: 1.375rem;
+    }
+  }
+  &__profile {
+    background-color: colors(bg-transparent-07);
+    border: 1px solid colors(text-dark);
+    position: absolute;
+    padding: 1rem .8rem;
+    height: 287px;
+    width: 179px;
+    top: 71px;
+    right: 2rem;
+    font-size: .875rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 200ms ease;
+
+    &__caret {
+      font-size: 1.5rem;
+      top: -20px;
+      right: 27px;
+      position: absolute;
+    }
+
+    &__account {
+      gap: .5rem;
+      padding-bottom: .5rem;
+
+      &__img {
+        width: 32px;
+        height: 32px;
+        border-radius: 5px;
+      }
+      &:hover {
+        cursor: pointer;
+        .menu__profile__account__name {
+          text-decoration: underline;
+        }
+      }
+    }
+    &__accountManage button{
+      background: none;
+      border: none;
+      color: colors(text);
+      cursor: pointer;
+      padding: 1rem 0;
+      &::after {
+        content: '';
+        display: block;
+        width: 100%;
+        position: absolute;
+        left: 0;
+        padding-top: 1rem;
+        border-bottom: 1px solid colors(bg-lighter);
+      }
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+    &__manage{
+      padding: 1rem 0;
+      font-weight: 700;
+      &__item {
+        padding-bottom: .5rem;
+      }
+      &__link {
+        color: colors(text);
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}

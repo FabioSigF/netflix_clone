@@ -1,0 +1,15 @@
+@mixin transiton-ease {
+  transition: all ease 200ms;
+}
+
+@mixin media($value){    
+  @media screen and (min-width: mediaQ($value)) {
+    @content;
+  }  
+}
+
+@mixin bgConfig($bgSize){
+  background-size: $bgSize;
+  background-position: center;
+  background-repeat: no-repeat;
+}

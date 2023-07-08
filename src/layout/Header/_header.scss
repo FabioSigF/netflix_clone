@@ -1,0 +1,14 @@
+.header {
+  background: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(20,20,20,0));
+  width: 100%;
+  padding: 0 2rem;
+  height: 70px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background 400ms ease;
+}

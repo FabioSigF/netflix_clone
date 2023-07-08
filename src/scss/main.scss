@@ -1,0 +1,50 @@
+//FONTS
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&family=Roboto:wght@400;700&display=swap');
+
+//OTHERS
+@import "abstracts/variables";
+@import "abstracts/functions";
+@import "abstracts/mixins";
+@import "base/base";
+@import "utils/utils";
+@import "../auxiliar/Container/container";
+
+//LAYOUT 
+@import "../layout/Header/header";
+@import "../layout/Loading/loading";
+@import "../layout/Menu/menu";
+@import "../layout/MenuMobile/menuMobile";
+@import "../layout/MenuMobile/Categories/categories";
+@import "../layout/MenuBottom/menuBottom";
+@import "../layout/Footer/footer";
+@import "../layout/MyFooter/myFooter";
+
+//COMPONENTS
+@import "../components/AccountsCard/accountsCard";
+@import "../components/FeatureMovie/featureMovie";
+@import "../components/Logo/logo";
+@import "../components/MovieRow/movieRow";
+@import "../components/LinkBtn/linkBtn";
+@import "../components/InputEmail/inputEmail";
+@import "../components/LanguageSelect/languageSelect";
+@import "../components/Form/form";
+@import "../components/InputForm/inputForm";
+@import "../components/Button/button";
+@import "../components/FAQ/faq";
+@import "../components/MovieInfo/movieInfo";
+@import "../components/MyListBtn/myListBtn";
+@import "../components/WatchBtn/watchBtn";
+@import "../components/MenuList/menuList";
+@import "../components/Search/search";
+
+//PAGES
+@import "../pages/Accounts/accounts";
+@import "../pages/Home/home";
+@import "../pages/Home/Browse/browse";
+@import "../pages/Home/MyList/myList";
+@import "../pages/Home/SearchPage/searchPage";
+@import "../pages/Home/Latest/latest";
+@import "../pages/Initial/initial";
+@import "../pages/Login/login";
+@import "../pages/NewClient/newClient";
+

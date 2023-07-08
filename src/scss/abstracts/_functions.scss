@@ -1,0 +1,11 @@
+@function colors($color-name){
+  @return map-get($colors, $color-name)
+};
+
+@function fontS($font-size){
+  @return map-get($font-sizes, $font-size )
+};
+
+@function mediaQ($breakpoints-value){
+  @return map-get($breakpoins, $breakpoints-value ) 
+};

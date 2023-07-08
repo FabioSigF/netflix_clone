@@ -1,0 +1,58 @@
+.footer {
+  padding: 4rem 0 2rem;
+  width: 100%;
+  background-color: colors(bg-transparent-07);
+  &__title,
+  &__link,
+  a {
+    font-weight: 400;
+    color: colors(text-dark);
+  }
+  &__link,
+  a {
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  &__title {
+    padding-bottom: 1rem;
+  }
+
+  &__list {
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 1rem;
+    max-height: 370px;
+  }
+  &__item {
+    width: 45%;
+  }
+  &__link {
+    font-size: .875rem;
+  }
+  &__others {
+    margin: 2rem 0;
+    opacity: .5;
+  }
+}
+@include media(tablet) {
+  .footer {
+    &__list {
+      max-height: 260px;
+    }
+    &__item {
+      width: 25%;
+    }
+  }
+}
+@include media(medium) {
+  .footer {
+    &__list {
+      gap: .625rem;
+      max-height: 150px;
+    }
+    &__item {
+      width: auto;
+    }
+  }
+}

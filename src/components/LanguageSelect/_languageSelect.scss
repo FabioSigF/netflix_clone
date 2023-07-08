@@ -1,0 +1,51 @@
+.lang {
+  position: relative;
+  max-width: 145px;
+  &__list {
+    border: 1px solid colors(text); 
+    border-radius: 3px;
+    background-color: transparent;
+    color: colors(text);
+    cursor: pointer;
+    font-size: 1rem;
+    padding: .6rem 1.5rem;
+    appearance: none;
+  }
+  &__iconGlobe,
+  &__iconArrow {
+    position: absolute;
+    height: 100%;
+    font-size: .875rem;
+    z-index: -1;
+  }
+  &__iconGlobe {
+    left: 6px;
+  }
+  &__iconArrow {
+    right: 7px;
+    bottom: 5px;
+  }
+
+  &__item {
+    background-color: colors(text-light);
+    color: colors(text);
+    border: none;
+    font-size: .875rem;
+  }
+  &--bg {
+    .lang {
+      &__list {
+      padding: 1rem 2.2rem;
+      }
+      &__iconGlobe {
+        font-size: 1.2rem;
+      }
+      &__iconGlobe {
+        left: 10px;
+      }
+      &__iconArrow {
+        right: 10px;
+      }
+    }
+  }
+}

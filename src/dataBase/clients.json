@@ -1,0 +1,29 @@
+{
+  "clients": [
+    {
+      "email": "fabio@email.com",
+      "password": "123455",
+      "id": 0
+    }
+  ],
+  "myFavorites": [
+    {
+      "name": "Desejo Sombrio",
+      "backdrop_path": "/4tYspgwxmK2XRjhi71tuY6R2iGv.jpg",
+      "poster_path": "/7nBrKoiH3vXFQtxJmM3v5cRMdpj.jpg",
+      "vote_average": 7.3,
+      "releaseDate": "2020",
+      "overview": "Casada, Alma passa um fim de semana fora de casa. A experiência desperta uma paixão, mas acaba em tragédia e a faz questionar a verdade sobre as pessoas próximas.",
+      "id": 1
+    },
+    {
+      "name": "Cobra Kai",
+      "backdrop_path": "/35SS0nlBhu28cSe7TiO3ZiywZhl.jpg",
+      "poster_path": "/5qMupAz4A9EN5Rutrkmov45mNXZ.jpg",
+      "vote_average": 8.2,
+      "releaseDate": "2018",
+      "overview": "Esta sequência de Karate Kid pega 30 anos depois dos eventos do All Valley Karate Tournament de 1984 e encontra Johnny Lawrence em busca de redenção reabrindo o infame dojo de karate Cobra Kai . Isso reacende sua antiga rivalidade com o bem-sucedido Daniel LaRusso, que vem trabalhado para manter o equilíbrio em sua vida sem o seu mentor Miyagi.",
+      "id": 2
+    }
+  ]
+}

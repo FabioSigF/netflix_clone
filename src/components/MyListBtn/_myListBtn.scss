@@ -1,0 +1,17 @@
+.myListBtn {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+
+  background-color: colors(text-darkest);
+  border-radius: 5px;
+  color: colors(text);
+  font-size: 1rem;
+  font-weight: bold;
+  padding: .5rem 2.5rem .5rem 2rem;
+  text-decoration: none;
+  transition: opacity 200ms ease-in-out;
+  &:hover {
+    opacity: .7;
+  }
+}

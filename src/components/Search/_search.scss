@@ -1,0 +1,31 @@
+.search{
+  &__btn {
+    color: colors(text);
+    cursor: pointer;
+    font-size: 1.2rem;
+  }
+
+  &__bar {
+    position: relative;
+    &__input {
+      width: 241px;
+      transform: all ease 200ms;
+      background-color: colors(bg-transparent-07);
+      border: 1px solid colors(text);
+      font-size: 1rem;
+      color: colors(text);
+      padding: .5rem .5rem .5rem 2.25rem;
+      outline: none;
+      &::placeholder {
+        color: colors(text-light);
+      }
+    }
+    &__icon{
+      color: colors(text);
+      font-size: 1.2rem;
+      position: absolute;
+      top: .5rem;
+      left: .5rem;
+    }
+  }
+}
