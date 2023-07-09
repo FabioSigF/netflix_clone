@@ -25,14 +25,12 @@ export default function MovieInfo({ movie, openState }) {
       const releaseDate = document.querySelector('.movieInfo__date').textContent;
       setMovieAdd(true)
       await insertDocument({
-        movie: JSON.stringify({
-          name: title,
-          backdrop_path: movie.backdrop_path,
-          poster_path: movie.poster_path,
-          vote_average: movie.vote_average,
-          releaseDate: releaseDate,
-          overview: movie.overview
-        }),
+        name: title,
+        backdrop_path: movie.backdrop_path,
+        poster_path: movie.poster_path,
+        vote_average: movie.vote_average,
+        releaseDate: releaseDate,
+        overview: movie.overview,
         uid: JSON.parse(localStorage.getItem("currentProfile")).id,
         movieId: movie.id,
       });
@@ -56,7 +54,7 @@ export default function MovieInfo({ movie, openState }) {
     e.preventDefault();
     if (movies) {
       movies.forEach((item) => {
-        if (((item.movieId === movie.id) || (JSON.parse(item.movie).movieId) === movie.id) && (item.uid === currentProfile)) {
+        if ((toString(item.movieId) === toString(movie.id)) && (item.uid === currentProfile)) {
           deleteDocument(item.id)
         }
       })
@@ -67,7 +65,7 @@ export default function MovieInfo({ movie, openState }) {
   const checkIfMovieIsInMyList = () => {
     movies.forEach((item) => {
       console.log(item)
-      if (((item.movieId === movie.id) || (JSON.parse(item.movie).movieId) === movie.id) && (item.uid === currentProfile)) {
+      if ((toString(item.movieId) === toString(movie.id)) && (item.uid === currentProfile)) {
         setMovieAdd(true);
       }
     })

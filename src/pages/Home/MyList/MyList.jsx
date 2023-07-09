@@ -22,7 +22,7 @@ export default function MyList() {
         <ul className="myList__list flex flex_ai_c">
           {movies &&
             movies.map((movie, key) => (
-              <CardMovie movie={JSON.parse(movie.movie)} key={key} />
+              <CardMovie movie={movie} key={key} />
             ))
           }
         </ul>
