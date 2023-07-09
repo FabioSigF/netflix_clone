@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+import CardMovie from "../CardMovie/CardMovie";
 
-export default function MovieRow({ title, items, onClickItem }) {
+export default function MovieRow({ title, items }) {
 
   const [scrollX, setScrollX] = useState(0)
 
@@ -37,9 +38,7 @@ return (
           {items.results.length > 0 && items.results.map((item, key) => {
             if (item.poster_path !== null) {
               return (
-                <div key={key} className="movieRow__item" onClick={() => onClickItem(item)}>
-                  <img src={`https://image.tmdb.org/t/p/w300${item.poster_path}`} alt={item.original_name} />
-                </div>
+                <CardMovie movie={item} key={key} />
               )
             } else {
               return (

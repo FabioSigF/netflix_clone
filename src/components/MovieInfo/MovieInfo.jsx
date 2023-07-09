@@ -1,11 +1,45 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FaCheck, FaPlus, FaThumbsDown, FaThumbsUp } from "react-icons/fa";
 import { BiX } from 'react-icons/bi'
 import WatchBtn from "../WatchBtn";
+import { useInsertDocument } from "../../hooks/useInsertDocument";
+import { useDeleteDocument } from "../../hooks/useDeleteDocument";
+import { useFetchDocuments } from "../../hooks/useFetchDocuments";
 
-export default function MovieInfo({ movie }) {
+
+export default function MovieInfo({ movie, openState }) {
 
   const [movieAdd, setMovieAdd] = useState(false);
+
+  const { insertDocument, response } = useInsertDocument("myList");
+  const { deleteDocument } = useDeleteDocument("myList");
+  const { documents: movies } = useFetchDocuments("myList");
+
+  const currentProfile = JSON.parse(localStorage.getItem("currentProfile")).id;
+
+  const addMyList = async (e) => {
+    e.preventDefault()
+
+    try {
+      const title = document.querySelector('.movieInfo__title').textContent;
+      const releaseDate = document.querySelector('.movieInfo__date').textContent;
+      setMovieAdd(true)
+      await insertDocument({
+        movie: JSON.stringify({
+          name: title,
+          backdrop_path: movie.backdrop_path,
+          poster_path: movie.poster_path,
+          vote_average: movie.vote_average,
+          releaseDate: releaseDate,
+          overview: movie.overview
+        }),
+        uid: JSON.parse(localStorage.getItem("currentProfile")).id,
+        movieId: movie.id,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   let firstDate = new Date(movie.first_air_date).getFullYear();
   let releaseDate = new Date(movie.release_date).getFullYear();
@@ -14,43 +48,37 @@ export default function MovieInfo({ movie }) {
     description = description.substring(0, 410) + '...';
   }
 
-  console.log(movie)
   function closeMovieInfo() {
-    setMovieAdd(false)
-    const moreInfo = document.querySelector('.movieInfo')
-    moreInfo.classList.remove('open')
+    openState(false);
   }
 
-  function addMyList(movie) {
-    const title = document.querySelector('.movieInfo__title').textContent;
-    const releaseDate = document.querySelector('.movieInfo__date').textContent;
-    setMovieAdd(true)
-    return fetch(`http://localhost:5000/myFavorites`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        name: title,
-        backdrop_path: movie.backdrop_path,
-        poster_path: movie.poster_path,
-        vote_average: movie.vote_average,
-        releaseDate: releaseDate,
-        overview: movie.overview
+  const removeMyList = (e) => {
+    e.preventDefault();
+    if (movies) {
+      movies.forEach((item) => {
+        if (((item.movieId === movie.id) || (JSON.parse(item.movie).movieId) === movie.id) && (item.uid === currentProfile)) {
+          deleteDocument(item.id)
+        }
       })
-    })
+    }
+    setMovieAdd(false);
   }
 
-  function removeMyList(id) {
-    closeMovieInfo()
-    return fetch(`http://localhost:5000/myFavorites/${id}`, {
-      method: 'DELETE'
-    }).then(resp => {
-      if (!resp.ok) {
-        throw new Error('Não foi possível remover o cliente!')
+  const checkIfMovieIsInMyList = () => {
+    movies.forEach((item) => {
+      console.log(item)
+      if (((item.movieId === movie.id) || (JSON.parse(item.movie).movieId) === movie.id) && (item.uid === currentProfile)) {
+        setMovieAdd(true);
       }
     })
   }
+
+  useEffect(() => {
+    if (movies) {
+      console.log(currentProfile)
+      checkIfMovieIsInMyList();
+    }
+  }, [movies])
 
   return (
     <div className="movieInfo open">
@@ -62,25 +90,17 @@ export default function MovieInfo({ movie }) {
             <h2 className="movieInfo__title">{movie.name ? movie.name : movie.original_title}</h2>
             <div className="movieInfo__btns flex">
               <WatchBtn />
-              {movie.genre_ids &&
-                <>{movieAdd
-                  ? (
-                    <div className="movieInfo__btn flex">
-                      <FaCheck />
-                    </div>
-                  )
-                  : (
-                    <div className="movieInfo__btn flex" onClick={() => addMyList(movie)}>
-                      <FaPlus />
-                    </div>
-                  )}
-                </>
-              }
-              {movie.genre_ids === undefined &&
-                <div className="movieInfo__btn flex" onClick={() => removeMyList(movie.id)}>
-                  <BiX />
-                </div>
-              }
+              {movieAdd
+                ? (
+                  <div className="movieInfo__btn flex" onClick={(e) => removeMyList(e)}>
+                    <FaCheck />
+                  </div>
+                )
+                : (
+                  <div className="movieInfo__btn flex" onClick={(e) => addMyList(e)}>
+                    <FaPlus />
+                  </div>
+                )}
               <div className="movieInfo__btn flex">
                 <FaThumbsUp />
               </div>

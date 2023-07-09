@@ -32,9 +32,6 @@ export default function Home({ movieList, movieInfo }) {
 
         <Outlet />
 
-        {movieInfo &&
-          <MovieInfo movie={movieInfo} />
-        }
         {movieList.length <= 0 &&
           <Loading />
         }

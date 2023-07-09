@@ -9,7 +9,6 @@ export const ContextProvider = ({ children }) => {
   const [currentProfile, setCurrentProfile] = useState(undefined);
   const [profiles, setProfiles] = useState([]);
   const [searchString, setSearchString] = useState(undefined);
-
   return (
     <StateContext.Provider
       value={{

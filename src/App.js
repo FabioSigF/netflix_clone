@@ -137,20 +137,20 @@ export default function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={!user ? <Initial /> : <Navigate to="/accounts"/>} />
+        <Route path="/" element={!user ? <Initial /> : <Navigate to="/accounts" />} />
         <Route
           path="/accounts"
-          element={<Accounts/> }
+          element={<Accounts />}
         />
         <Route path="/browse"
           element={
-          localStorage.getItem("currentProfile") ?
-          <Home
-            movieList={movieList}
-            movieInfo={movieInfo}
-          />
-          : <Navigate to="/accounts" />
-         }
+            localStorage.getItem("currentProfile") ?
+              <Home
+                movieList={movieList}
+                movieInfo={movieInfo}
+              />
+              : <Navigate to="/accounts" />
+          }
         >
           <Route path=""
             element={<Browse
