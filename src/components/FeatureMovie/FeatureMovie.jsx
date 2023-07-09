@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import WatchBtn from "../WatchBtn";
-import MyListBtn from "../MyListBtn";
+import { AiOutlineInfoCircle } from "react-icons/ai";
+import MovieInfo from "../MovieInfo/MovieInfo";
 export default function FeatureMovie({ item }) {
 
   //Seleciona gêneros dos filmes
@@ -16,40 +17,57 @@ export default function FeatureMovie({ item }) {
     description = description.substring(0, 200) + '...';
   }
 
-  return (
-    <section className="featured" style={{
-      backgroundImage: `url(https://image.tmdb.org/t/p/original${item.backdrop_path})`
-    }}>
-      <div className="featured__content flex">
-        <h2 className="featured__title">{item.name ? item.name : item.original_title}</h2>
+  const [openMovieInfo, setOpenMovieInfo] = useState(false);
 
-        <div className="featured__description">
-          <div className="featured__details">
-            <div className="featured__points">{item.vote_average.toFixed(1)} pontos</div>
-            {(item.first_air_date || item.release_date) &&
-              <div className="featured__year">{item.first_air_date ? new Date(item.first_air_date).getFullYear() : new Date(item.release_date).getFullYear()}</div>
-            }
-            {item.number_of_seasons &&
-              <div className="featured__seasons">{item.number_of_seasons} temporada{item.number_of_seasons !== 1 && 's'}</div>
-            }
-            <div className="featured__synopsis">
-              {description}
+  function openMoreInfo(item) {
+    setOpenMovieInfo(true);
+    const movieInfo = document.querySelector('.movieInfo')
+    movieInfo.classList.add('open')
+  }
+
+  return (
+    <>
+      <section className="featured" style={{
+        backgroundImage: `url(https://image.tmdb.org/t/p/original${item.backdrop_path})`
+      }}>
+        <div className="featured__content flex">
+          <h2 className="featured__title">{item.name ? item.name : item.original_title}</h2>
+
+          <div className="featured__description">
+            <div className="featured__details">
+              <div className="featured__points">{item.vote_average.toFixed(1)} pontos</div>
+              {(item.first_air_date || item.release_date) &&
+                <div className="featured__year">{item.first_air_date ? new Date(item.first_air_date).getFullYear() : new Date(item.release_date).getFullYear()}</div>
+              }
+              {item.number_of_seasons &&
+                <div className="featured__seasons">{item.number_of_seasons} temporada{item.number_of_seasons !== 1 && 's'}</div>
+              }
+              <div className="featured__synopsis">
+                {description}
+              </div>
             </div>
-          </div>
-          <div className="featured__info">
-            <div className="featured__genres">
-              <strong>Gêneros: </strong>
-              {genres.map((item, key) => (
-                <span key={key}>{item}</span>
-              ))}
-            </div>
-            <div className="featured__btns">
-              <WatchBtn item={item} />
-              <MyListBtn movie={item} />
+            <div className="featured__info">
+              <div className="featured__genres">
+                <strong>Gêneros: </strong>
+                {genres.map((item, key) => (
+                  <span key={key}>{item}</span>
+                ))}
+              </div>
+              <div className="featured__btns">
+                <WatchBtn item={item} />
+                <button 
+                  className="moreInfo__btn"
+                  onClick={() => openMoreInfo(item)}
+                >{<AiOutlineInfoCircle />}More info</button>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+      {
+        openMovieInfo &&
+        <MovieInfo movie={item} openState={setOpenMovieInfo} />
+      }
+    </>
   )
 }

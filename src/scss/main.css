@@ -711,6 +711,23 @@ button {
   top: 6px;
 }
 
+.moreInfo__btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: #333;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 0.5rem 2.5rem 0.5rem 2rem;
+  text-decoration: none;
+  transition: opacity 200ms ease-in-out;
+}
+.moreInfo__btn:hover {
+  opacity: 0.7;
+}
+
 @media screen and (min-width: 1024px) {
   .featured::before {
     background: linear-gradient(to right, #111 30%, transparent 70%);
@@ -1341,23 +1358,6 @@ button {
   color: #46d369;
   font-weight: 700;
   margin-right: 1rem;
-}
-
-.myListBtn {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  background-color: #333;
-  border-radius: 5px;
-  color: #fff;
-  font-size: 1rem;
-  font-weight: bold;
-  padding: 0.5rem 2.5rem 0.5rem 2rem;
-  text-decoration: none;
-  transition: opacity 200ms ease-in-out;
-}
-.myListBtn:hover {
-  opacity: 0.7;
 }
 
 .watchBtn {

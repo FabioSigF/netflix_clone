@@ -60,6 +60,7 @@ export default function MovieInfo({ movie, openState }) {
       })
     }
     setMovieAdd(false);
+    openState(false);
   }
 
   const checkIfMovieIsInMyList = () => {
