@@ -12,10 +12,13 @@ export default function Accounts() {
   const { documents: allProfiles } = useFetchDocuments("profiles");
 
   const navigate = useNavigate();
-
+  
   useEffect(() => {
+    setProfiles([]);
+    
+    console.log(user)
     user && allProfiles && allProfiles.forEach((item) => {
-      if (item.uid === user.id) {
+      if (item.createdBy === user.uid) {
         setProfiles(current => [...current, item])
       }
     });

@@ -35,6 +35,10 @@ export default function CreatePassword() {
     }
   }, [authError])
 
+  useEffect(() => {
+    setEmail(sessionStorage.getItem("registerEmail"));
+  }, [])
+
   return (
     <div className="newClient__card flex flex_ai_c">
       <span className="newClient__step">Passo <strong>2</strong> de <strong>3</strong></span>

@@ -12,7 +12,7 @@ export default function Form({ title, children, onClick }) {
       <form action="" className="form__container">
         {children}
         <div className="form__btn">
-          <button type="button" className="linkBtn linkBtn--main" onClick={onClick}>{title}</button>
+          <button className="linkBtn linkBtn--main" onClick={onClick}>{title}</button>
         </div>
       </form>
       {title === 'Entrar' &&

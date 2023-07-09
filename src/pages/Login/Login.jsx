@@ -6,7 +6,6 @@ import Form from "../../components/Form";
 import InputForm from "../../components/InputForm";
 import { useAuthentication } from "../../hooks/useAuthentication";
 import { useStateContext } from "../../context/ContextProvider";
-import { useFetchDocuments } from "../../hooks/useFetchDocuments";
 
 export default function Login() {
 
@@ -14,7 +13,7 @@ export default function Login() {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
-  const { user, setUser, setProfiles, profiles } = useStateContext();
+  const { setProfiles } = useStateContext();
 
   const { login, error: authError, loading } = useAuthentication();
 
@@ -22,7 +21,6 @@ export default function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     setError("");
 
     const user = {
@@ -34,7 +32,6 @@ export default function Login() {
       setProfiles([]);
       
       const res = await login(user);
-      setUser(user);
       navigate("/accounts");
     } catch (error) {
       console.log(error);

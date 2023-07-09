@@ -126,14 +126,6 @@ export default function App() {
     });
   }, [auth])
 
-  //Fake data para perfis de usuários
-  const users = [
-    { name: 'Fábio', icon: 'user1', link: '/home' },
-    { name: 'Felipe', icon: 'user4', link: '/home' },
-    { name: 'Silvana', icon: 'user9', link: '/home' },
-    { name: 'Isabella', icon: 'user7', link: '/home' },
-  ]
-
   const [movieInfo, setMovieInfo] = useState('')
 
   function openMoreInfo(item) {
@@ -145,16 +137,20 @@ export default function App() {
   return (
     <Router>
       <Routes>
-        <Route index path="/" element={!user ? <Initial /> : <Navigate to="/accounts"/>} />
+        <Route path="/" element={!user ? <Initial /> : <Navigate to="/accounts"/>} />
         <Route
           path="/accounts"
           element={<Accounts/> }
         />
         <Route path="/browse"
-          element={<Home
+          element={
+          localStorage.getItem("currentProfile") ?
+          <Home
             movieList={movieList}
             movieInfo={movieInfo}
-          /> }
+          />
+          : <Navigate to="/accounts" />
+         }
         >
           <Route path=""
             element={<Browse
@@ -199,7 +195,7 @@ export default function App() {
 
         {/*USUÁRIO NÃO LOGADO */}
         <Route path="/login" element={!user ? <Login /> : <Navigate to="/browse" />} />
-        <Route path="new-client" element={!user ? <NewClient /> : <Navigate to="/browse" />}>
+        <Route path="/new-client" element={!user ? <NewClient /> : <Navigate to="/browse" />}>
           <Route index path="" element={!user ? <ConfigCard /> : <Navigate to="/browse" />} />
           <Route path="config" element={!user ? <ConfigCard /> : <Navigate to="/browse" />} />
           <Route path="password" element={!user ? <CreatePassword /> : <Navigate to="/browse" />} />
