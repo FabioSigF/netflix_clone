@@ -110,6 +110,7 @@
       border-bottom: 1px solid colors(text-light);
     }
     &__item {
+      min-width: 274px;
       padding: 1rem;
     }
     &__link {

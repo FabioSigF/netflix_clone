@@ -54,7 +54,7 @@ export default function MovieInfo({ movie, openState }) {
     e.preventDefault();
     if (movies) {
       movies.forEach((item) => {
-        if ((toString(item.movieId) === toString(movie.id)) && (item.uid === currentProfile)) {
+        if (((item.movieId === movie.id) || (item.movieId === movie.movieId)) && (item.uid === currentProfile)) {
           deleteDocument(item.id)
         }
       })
@@ -64,8 +64,8 @@ export default function MovieInfo({ movie, openState }) {
 
   const checkIfMovieIsInMyList = () => {
     movies.forEach((item) => {
-      console.log(item)
-      if ((toString(item.movieId) === toString(movie.id)) && (item.uid === currentProfile)) {
+      console.log(movie)
+      if (((item.movieId === movie.id) || (item.movieId === movie.movieId)) && (item.uid === currentProfile)) {
         setMovieAdd(true);
       }
     })

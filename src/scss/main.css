@@ -185,6 +185,7 @@ button {
   border-bottom: 1px solid #999999;
 }
 .menu__notification__item {
+  min-width: 274px;
   padding: 1rem;
 }
 .menu__notification__link {
@@ -1255,7 +1256,7 @@ button {
 }
 .movieInfo {
   background-color: rgba(0, 0, 0, 0.7);
-  display: none;
+  display: block;
   position: fixed;
   top: 0;
   left: 0;
@@ -1264,11 +1265,6 @@ button {
   width: 100%;
   height: 100vh;
   z-index: 999;
-  visibility: hidden;
-}
-.movieInfo.open {
-  display: block;
-  visibility: visible;
 }
 .movieInfo__container {
   position: relative;

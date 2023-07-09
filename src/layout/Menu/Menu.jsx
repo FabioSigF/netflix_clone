@@ -1,12 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
 import Logo from '../../components/Logo';
 import { FaBell, FaCaretDown, FaCaretUp } from 'react-icons/fa';
-import myList from '../../dataBase/clients.json';
+
 import MenuList from "../../components/MenuList";
 import Search from "../../components/Search";
 import { useAuthentication } from "../../hooks/useAuthentication";
 import { useStateContext } from "../../context/ContextProvider";
+import { useFetchDocuments } from "../../hooks/useFetchDocuments";
 
 export default function Menu() {
 
@@ -15,7 +16,19 @@ export default function Menu() {
 
   const currentProfileStorage = JSON.parse(localStorage.getItem("currentProfile"));
   const profilesStorage = JSON.parse(localStorage.getItem("profiles"));
-  
+
+  const { documents: movies } = useFetchDocuments("myList");
+
+  const filterMovies = () => {
+    if (movies) {
+      movies.filter(movie => movie.uid !== JSON.parse(localStorage.getItem("currentProfile")).id)
+    }
+  }
+
+  useEffect(() => {
+    filterMovies();
+  }, [movies])
+
   function changeUser(item) {
     console.log(item);
     setCurrentProfile(item);
@@ -56,21 +69,23 @@ export default function Menu() {
         </div>
         <div className="menu__notification">
           <FaBell />
-          {myList.myFavorites.length > 0 &&
-            <div className="menu__notification__alert flex flex_ai_c">{myList.myFavorites.length}</div>
+          {movies && movies.length > 0 &&
+            <div className="menu__notification__alert flex flex_ai_c">{movies.length}</div>
           }
           <ul className="menu__notification__card">
-            {myList.myFavorites.map((item, key) => (
-              <li className="menu__notification__item" key={key}>
-                <a href="/browse/my-list" className="menu__notification__link flex flex_ai_c">
-                  <img src={`https://image.tmdb.org/t/p/original${item.poster_path}`} alt={item.name} className="menu__notification__img" />
-                  <div className="menu__notification__text">
-                    <span className="menu__notification__about">Assista agora</span>
-                    <span className="menu__notification__title">{item.name}</span>
-                  </div>
-                </a>
-              </li>
-            ))}
+            {movies &&
+              movies.map((item, key) => (
+                <li className="menu__notification__item" key={key}>
+                  <a href="/browse/my-list" className="menu__notification__link flex flex_ai_c">
+                    <img src={`https://image.tmdb.org/t/p/original${item.poster_path}`} alt={item.name} className="menu__notification__img" />
+                    <div className="menu__notification__text">
+                      <span className="menu__notification__about">Assista agora</span>
+                      <span className="menu__notification__title">{item.name}</span>
+                    </div>
+                  </a>
+                </li>
+              ))
+            }
           </ul>
         </div>
         <div className="menu__user__profile flex flex_ai_c">

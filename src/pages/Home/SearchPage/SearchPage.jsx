@@ -1,6 +1,7 @@
 import React from 'react';
 import Container from '../../../auxiliar/Container';
 import { useStateContext } from '../../../context/ContextProvider';
+import CardMovie from '../../../components/CardMovie/CardMovie';
 export default function SearchPage({ movieList, setMovieInfo }) {
 
   const { searchString } = useStateContext();
@@ -50,9 +51,7 @@ export default function SearchPage({ movieList, setMovieInfo }) {
         {searchString &&
           <ul className='searchPage__results'>
             {searchMovies().map((item, key) => (
-              <li key={key} className="myList__item" onClick={() => setMovieInfo(item)} >
-                <img src={`https://image.tmdb.org/t/p/w300${item.poster_path}`} alt={item.name} className="myList__img" />
-              </li>
+              <CardMovie movie={item}/>
             ))}
           </ul>
         }
