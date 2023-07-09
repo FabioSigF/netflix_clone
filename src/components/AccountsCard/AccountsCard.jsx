@@ -1,5 +1,4 @@
 import React from "react";
-import imgUserApi from "../../imgs/users/imgUserApi";
 import { Link } from "react-router-dom";
 
 export default function AccountsCard({link, name, avatar, children, customClass, onClick}) {

@@ -55,7 +55,7 @@ export default function Accounts() {
                   />
                 ))}
               <AccountsCard
-                link="/home"
+                link="/new-profile"
                 name="Adicionar perfil"
                 bg="5"
                 customClass='prof--ad'

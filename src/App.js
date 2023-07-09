@@ -17,6 +17,7 @@ import SearchPage from "./pages/Home/SearchPage";
 import { onAuthStateChanged } from "firebase/auth";
 import { useStateContext } from "./context/ContextProvider";
 import { useAuthentication } from "./hooks/useAuthentication";
+import NewProfile from "./pages/NewProfile/NewProfile";
 
 
 export default function App() {
@@ -141,6 +142,10 @@ export default function App() {
         <Route
           path="/accounts"
           element={<Accounts />}
+        />
+        <Route
+          path="/new-profile"
+          element={<NewProfile />}
         />
         <Route path="/browse"
           element={

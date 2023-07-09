@@ -41,19 +41,19 @@ export default function Menu() {
       <nav className="menu">
         <Logo />
         <ul className="menu__list">
-          <li className='menuList__item'>
-            <NavLink to="/browse" className="menuList__link" end>Início</NavLink>
+          <li className='menu__item'>
+            <NavLink to="/browse" className="menu__link" end>Início</NavLink>
           </li>
-          <li className='menuList__item'>
-            <NavLink to="/browse/series" className="menuList__link">Séries</NavLink>
+          <li className='menu__item'>
+            <NavLink to="/browse/series" className="menu__link">Séries</NavLink>
           </li>
-          <li className='menuList__item'>
-            <NavLink to="/browse/movies" className="menuList__link">Filmes</NavLink>
+          <li className='menu__item'>
+            <NavLink to="/browse/movies" className="menu__link">Filmes</NavLink>
           </li>
-          <li className='menuList__item'>
-            <NavLink to="/browse/latest" className="menuList__link">Bombando</NavLink>
-          </li><li className='menuList__item'>
-            <NavLink to="/browse/my-list" className="menuList__link">Minha Lista</NavLink>
+          <li className='menu__item'>
+            <NavLink to="/browse/latest" className="menu__link">Bombando</NavLink>
+          </li><li className='menu__item'>
+            <NavLink to="/browse/my-list" className="menu__link">Minha Lista</NavLink>
           </li>
         </ul>
       </nav>

@@ -12,6 +12,7 @@ export default function MovieInfo({ movie, openState }) {
   const [movieAdd, setMovieAdd] = useState(false);
 
   const { insertDocument, response } = useInsertDocument("myList");
+
   const { deleteDocument } = useDeleteDocument("myList");
   const { documents: movies } = useFetchDocuments("myList");
 
