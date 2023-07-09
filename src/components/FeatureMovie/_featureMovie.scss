@@ -5,7 +5,9 @@
   align-items: center;
   position: relative;
   height: 100vh;
-  &::after, &::before {
+
+  &::after,
+  &::before {
     content: "";
     position: absolute;
     width: 100%;
@@ -13,6 +15,7 @@
     top: 0;
     left: 0;
   }
+
   &::after {
     background: linear-gradient(to top, #111 10%, transparent 90%);
   }
@@ -38,18 +41,23 @@
     align-items: center;
     flex-direction: column;
   }
+
   &__details {
     display: none;
   }
+
   &__synopsis {
     display: none;
   }
 
-  &__btns{
-   display: flex; 
-   gap: 1rem;
+  &__btns {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
   }
-  
+
   &__genres {
     display: flex;
     flex-wrap: wrap;
@@ -59,13 +67,16 @@
     margin-top: 1rem;
     margin-bottom: 1rem;
     color: rgba(255, 255, 255, 0.95);
+
     & strong {
       display: none;
     }
+
     & span {
       font-size: .875rem;
       position: relative;
     }
+
     & span:not(:last-child)::before {
       content: '';
       border-radius: 50%;
@@ -93,44 +104,59 @@
   padding: .5rem 2.5rem .5rem 2rem;
   text-decoration: none;
   transition: opacity 200ms ease-in-out;
+
   &:hover {
     opacity: .7;
   }
 }
 
+@include media(tablet) {
+  .featured__btns {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+}
+
 @include media(normal) {
-  .featured{
+  .featured {
     &::before {
       background: linear-gradient(to right, #111 30%, transparent 70%);
     }
+
     &__content {
       align-items: flex-start;
       padding-left: 2rem;
       padding-right: 0;
       padding-top: 30px;
     }
+
     &__title {
       font-size: 3.75rem;
       font-weight: bold;
-    }  
+    }
+
     &__description {
       font-size: 1.125rem;
       font-weight: bold;
       margin-top: 1rem;
     }
+
     &__details {
       display: block;
     }
+
     &__points {
       color: colors(points);
     }
+
     &__points,
     &__year,
     &__seasons {
       display: inline-block;
       margin-right: 1rem;
     }
-  
+
     &__synopsis {
       display: block;
       color: rgba(255, 255, 255, 0.95);
@@ -138,9 +164,10 @@
       margin-top: 1rem;
       margin-bottom: 1rem;
       font-size: 1.25rem;
-      text-shadow: 2px 2px 4px rgba(0,0,0, 45%);
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 45%);
       max-width: 40%;
     }
+
     &__info {
       flex-direction: column;
       align-items: flex-start;
@@ -151,6 +178,7 @@
         font-size: 1.125rem;
         font-weight: bold;
       }
+
       & span:not(:last-child)::before {
         content: ',';
         background-color: colors(text);
@@ -158,6 +186,7 @@
         right: -3px;
         top: 0;
       }
+
       & strong {
         display: block;
       }

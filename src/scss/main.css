@@ -211,7 +211,7 @@ button {
   border: 1px solid #808080;
   position: absolute;
   padding: 1rem 0.8rem;
-  height: 287px;
+  height: auto;
   width: 179px;
   top: 71px;
   right: 2rem;
@@ -261,11 +261,10 @@ button {
   text-decoration: underline;
 }
 .menu__profile__manage {
-  padding: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
   font-weight: 700;
-}
-.menu__profile__manage__item {
-  padding-bottom: 0.5rem;
 }
 .menu__profile__manage__link {
   color: #fff;
@@ -680,6 +679,9 @@ button {
 }
 .featured__btns {
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   gap: 1rem;
 }
 .featured__genres {
@@ -728,6 +730,13 @@ button {
   opacity: 0.7;
 }
 
+@media screen and (min-width: 540px) {
+  .featured__btns {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+}
 @media screen and (min-width: 1024px) {
   .featured::before {
     background: linear-gradient(to right, #111 30%, transparent 70%);
@@ -1402,7 +1411,8 @@ button {
   position: relative;
 }
 .search__bar__input {
-  width: 241px;
+  width: 100%;
+  max-width: 241px;
   transform: all ease 200ms;
   background-color: rgba(0, 0, 0, 0.7);
   border: 1px solid #fff;

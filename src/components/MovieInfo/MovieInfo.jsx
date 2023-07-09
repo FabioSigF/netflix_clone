@@ -42,6 +42,7 @@ export default function MovieInfo({ movie, openState }) {
   let firstDate = new Date(movie.first_air_date).getFullYear();
   let releaseDate = new Date(movie.release_date).getFullYear();
   let description = movie.overview;
+  let voteAverage = (movie.vote_average).toFixed(1);
   if (description.length > 410) {
     description = description.substring(0, 410) + '...';
   }
@@ -115,7 +116,7 @@ export default function MovieInfo({ movie, openState }) {
         <div className="movieInfo__about">
           <div className="movieInfo__content">
             <div className="movieInfo__bar">
-              <span className="movieInfo__points">{movie.vote_average} pontos</span>
+              <span className="movieInfo__points">{voteAverage} pontos</span>
               {movie.genre_ids &&
                 <span className="movieInfo__date">
                   {movie.first_air_date ? firstDate : releaseDate}

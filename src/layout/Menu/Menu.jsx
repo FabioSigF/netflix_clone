@@ -1,13 +1,11 @@
-import React, { useEffect, useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import React from "react";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import Logo from '../../components/Logo';
-import { FaBell, FaCaretDown, FaCaretUp } from 'react-icons/fa';
+import { FaCaretDown, FaCaretUp } from 'react-icons/fa';
 
-import MenuList from "../../components/MenuList";
 import Search from "../../components/Search";
 import { useAuthentication } from "../../hooks/useAuthentication";
 import { useStateContext } from "../../context/ContextProvider";
-import { useFetchDocuments } from "../../hooks/useFetchDocuments";
 import Notification from "../../components/Notification/Notification";
 
 export default function Menu() {
@@ -17,6 +15,8 @@ export default function Menu() {
 
   const currentProfileStorage = JSON.parse(localStorage.getItem("currentProfile"));
   const profilesStorage = JSON.parse(localStorage.getItem("profiles"));
+
+  const navigate = useNavigate();
 
   function changeUser(item) {
     console.log(item);
@@ -36,20 +36,25 @@ export default function Menu() {
   }
   window.addEventListener('scroll', scrollBg)
 
-  const dataMenu = [
-    { title: "Início", link: "/browse" },
-    { title: "Séries", link: "/browse/series" },
-    { title: "Filmes", link: "/browse/movies" },
-    { title: "Bombando", link: "/browse/latest" },
-    { title: "Minha Lista", link: "/browse/my-list" },
-  ]
-
   return (
     <header className="header" data-menu>
       <nav className="menu">
         <Logo />
         <ul className="menu__list">
-          <MenuList data={dataMenu} />
+          <li className='menuList__item'>
+            <NavLink to="/browse" className="menuList__link" end>Início</NavLink>
+          </li>
+          <li className='menuList__item'>
+            <NavLink to="/browse/series" className="menuList__link">Séries</NavLink>
+          </li>
+          <li className='menuList__item'>
+            <NavLink to="/browse/movies" className="menuList__link">Filmes</NavLink>
+          </li>
+          <li className='menuList__item'>
+            <NavLink to="/browse/latest" className="menuList__link">Bombando</NavLink>
+          </li><li className='menuList__item'>
+            <NavLink to="/browse/my-list" className="menuList__link">Minha Lista</NavLink>
+          </li>
         </ul>
       </nav>
       <div className="menu__user">
@@ -60,7 +65,7 @@ export default function Menu() {
         <Notification />
         <div className="menu__user__profile flex flex_ai_c">
           <a href="/browse" className="menu__user__icon">
-            <img src={currentProfile ? currentProfile.avatar : currentProfileStorage.avatar} alt="Netflix User" />
+            <img src={currentProfile ? currentProfile.avatar : currentProfileStorage.avatar} alt={currentProfileStorage.name} />
           </a>
           <div className="menu__user__profile_btn">
             <FaCaretDown />
@@ -101,7 +106,7 @@ export default function Menu() {
                 })
                 )}
               <li className="menu__profile__accountManage">
-                <button>Gerenciar perfis</button>
+                <button onClick={() => navigate("/accounts")}>Gerenciar perfis</button>
               </li>
             </ul>
             <ul className="menu__profile__manage">

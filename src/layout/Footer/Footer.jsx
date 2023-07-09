@@ -13,7 +13,7 @@ export default function Footer(){
         <ul className="footer__list flex">
           {data.map((item, key)=> (
             <li className="footer__item" key={key}>
-              <Link to={item.link} className="footer__link">{item.title}</Link>
+              <Link to="#!" className="footer__link">{item.title}</Link>
             </li>
           ))}
         </ul>

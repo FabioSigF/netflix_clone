@@ -1,11 +1,12 @@
 import React from "react";
 import Logo from "../../components/Logo";
-import user from '../../imgs/user.png';
-import { FaSearch, FaTv } from 'react-icons/fa';
 import Categories from "./Categories";
+import Search from "../../components/Search/Search";
 
 export default function MenuMobile({ categories }) {
-  
+
+  const currentProfileStorage = JSON.parse(localStorage.getItem("currentProfile"));
+
   function scrollBg() {
     const menu = document.querySelector('[data-menu]');
     if (window.scrollY > 90) {
@@ -21,24 +22,19 @@ export default function MenuMobile({ categories }) {
       <div className="mb_header__bar">
         <Logo />
         <div className="mb_header__icons flex flex_ai_c">
-          <a href="/" className="mb_header__tv">
-            <FaTv />
-          </a>
-          <a href="/" className="mb_header__search">
-            <FaSearch />
-          </a>
+          <Search/>
           <a href="/" className="mb_header__profile">
-            <img src={user} alt="Netflix User" />
+            <img src={currentProfileStorage.avatar} alt={currentProfileStorage.name} />
           </a>
         </div>
       </div>
       <nav className="menuMobile" data-menu>
         <ul className="menuMobile__list">
           <li className="menuMobile__item">
-            <a href="/" className="menuMobile__link">Séries</a>
+            <a href="/browse/series" className="menuMobile__link">Séries</a>
           </li>
           <li className="menuMobile__item">
-            <a href="/" className="menuMobile__link">Filmes</a>
+            <a href="/browse/movies" className="menuMobile__link">Filmes</a>
           </li>
           <Categories
             list={categories.map((item) => (

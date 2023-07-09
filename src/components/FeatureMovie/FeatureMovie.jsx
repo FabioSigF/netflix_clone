@@ -54,11 +54,11 @@ export default function FeatureMovie({ item }) {
                 ))}
               </div>
               <div className="featured__btns">
-                <WatchBtn item={item} />
+                <WatchBtn />
                 <button 
                   className="moreInfo__btn"
                   onClick={() => openMoreInfo(item)}
-                >{<AiOutlineInfoCircle />}More info</button>
+                >{<AiOutlineInfoCircle />}Mais informações</button>
               </div>
             </div>
           </div>

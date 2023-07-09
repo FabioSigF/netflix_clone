@@ -8,7 +8,8 @@
   &__bar {
     position: relative;
     &__input {
-      width: 241px;
+      width: 100%;
+      max-width: 241px;
       transform: all ease 200ms;
       background-color: colors(bg-transparent-07);
       border: 1px solid colors(text);
