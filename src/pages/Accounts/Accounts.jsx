@@ -53,7 +53,6 @@ export default function Accounts() {
                   <li className='accounts__item'>
                     <AccountsCard
                       key={key}
-                      link={"/browse"}
                       profile={item}
                       onClick={() => handleProfile(item)}
                       manageProfiles={manageProfiles}
@@ -61,7 +60,7 @@ export default function Accounts() {
                   </li>
                 ))}
               <AccountsCard
-                link="/new-profile"
+                onClick={()=>navigate("/new-profile")}
                 profile={{name: "Adicionar Perfil"}}
                 bg="5"
                 customClass='prof--ad'

@@ -10,39 +10,4 @@
     font-size: fontS(x-large);
     color: colors(text);
   }
-  &__genres {
-    border: 2px solid colors(text);
-    cursor: pointer;
-    gap: 1rem;
-    padding: .25rem .625rem;
-    &__container {
-      position: relative;
-    }
-    &:hover {
-      background-color: colors(text-light);
-    }
-
-    &__dropdown {
-      display: block;
-      position: absolute;
-    }
-    &__list {
-      background-color: colors(bg-transparent-09);
-      border: 1px solid colors(text-light);
-      flex-direction: column;
-      flex-wrap: wrap;
-      gap: 1rem;
-      height: 100%;
-      max-height: 160px;
-      padding: 1rem;
-      width: 500px;
-    }
-    &__link {
-      color: colors(text);
-
-      &:hover {
-        text-decoration: underline;
-      }
-    }
-  }
 }

@@ -140,19 +140,22 @@ export default function App() {
     <Router>
       <Routes>
         <Route path="/" element={!user ? <Initial /> : <Navigate to="/accounts" />} />
+
+        {/*USUÁRIO LOGADO*/}
         <Route
           path="/accounts"
-          element={<Accounts />}
+          element={user ? <Accounts /> : <Navigate to="/" />}
         />
         <Route
           path="/new-profile"
-          element={<NewProfile />}
+          element={user ? <NewProfile /> : <Navigate to="/" />}
         />
         <Route
           path="/edit-profile/:id"
-          element={<EditProfile />}
+          element={user ? <EditProfile /> : <Navigate to="/" />}
         />
 
+        {/*USUÁRIO COM PERFIL*/}
         <Route path="/browse"
           element={
             localStorage.getItem("currentProfile") ?
@@ -201,17 +204,14 @@ export default function App() {
           <Route path="search" element={<SearchPage movieList={allList} searchChange={searchChange} setMovieInfo={openMoreInfo} />} />
         </Route>
 
-        {/*USUÁRIO LOGADO */}
-        <Route path="/accounts" />
-
         {/*USUÁRIO NÃO LOGADO */}
         <Route path="/login" element={!user ? <Login /> : <Navigate to="/browse" />} />
         <Route path="/new-client" element={!user ? <NewClient /> : <Navigate to="/browse" />}>
-          <Route index path="" element={!user ? <ConfigCard /> : <Navigate to="/browse" />} />
-          <Route path="config" element={!user ? <ConfigCard /> : <Navigate to="/browse" />} />
-          <Route path="password" element={!user ? <CreatePassword /> : <Navigate to="/browse" />} />
-          <Route path="congrat" element={!user ? <Congratulations /> : <Navigate to="/browse" />} />
+          <Route index path="" element={!user ? <ConfigCard /> : <Navigate to="/browse" /> }/>
+          <Route path="config" element={!user ? <ConfigCard /> : <Navigate to="/browse" /> }/>
+          <Route path="password" element={!user ? <CreatePassword /> : <Navigate to="/browse" /> }/>
         </Route>
+        <Route path="/congrat" element={user ? <Congratulations /> : <Navigate to="/" />} />
       </Routes>
       <Footer />
     </Router>

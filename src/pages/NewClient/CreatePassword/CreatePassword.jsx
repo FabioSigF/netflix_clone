@@ -26,7 +26,7 @@ export default function CreatePassword() {
     }
     const res = await createUser(user);
 
-    navigate("/new-client/congrat");
+    navigate("/congrat");
   }
 
   useEffect(() => {
