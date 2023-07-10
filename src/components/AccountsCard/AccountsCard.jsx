@@ -1,18 +1,36 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { BsPencil } from "react-icons/bs";
+import { Link, useNavigate } from "react-router-dom";
 
-export default function AccountsCard({link, name, avatar, children, customClass, onClick}) {
+export default function AccountsCard({ link, profile, children, customClass, onClick, manageProfiles }) {
+
+  const navigate = useNavigate();
+
+  const handleEditProfile = () => {
+    navigate(`/edit-profile/${profile.id}`)
+  }
+
   return (
-    <li className='accountsCard__item'>
-      <Link 
-        to={link} 
-        className={`accountsCard__avatar ${customClass}`}
-        style={{backgroundImage: `url(${avatar})`}}
-        onClick={onClick}
-      >
-        {children}
-      </Link>
-      <span className='accountsCard__name'>{name}</span>
-    </li>
+
+    <div className='accountsCard__item'>
+      {profile && (
+        <>
+          <div
+            className={`accountsCard__avatar ${customClass}`}
+            style={{ backgroundImage: `url(${profile.avatar})` }}
+            onClick={manageProfiles ? handleEditProfile : onClick}
+          >
+            {children}
+
+            {manageProfiles && (
+              <button className="editProfile__button">
+                < BsPencil />
+              </button>
+            )}
+          </div>
+          <span className='accountsCard__name'>{profile.name}</span>
+        </>
+      )}
+    </div>
   )
 } 

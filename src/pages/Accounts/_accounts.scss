@@ -40,8 +40,12 @@
     margin: 0 20% 2rem;
   }
 
+  &__item {
+    position: relative;
+  }
+
   &__edit {
-    a {
+    button {
       padding: .5rem 2rem;
       border: 1px solid colors(text);
       color: colors(text);

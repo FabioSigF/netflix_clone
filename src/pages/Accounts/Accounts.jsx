@@ -2,20 +2,24 @@ import { FaPlusCircle } from 'react-icons/fa';
 import AccountsCard from '../../components/AccountsCard';
 import Logo from '../../components/Logo';
 import { useStateContext } from '../../context/ContextProvider';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom'
 import { useFetchDocuments } from '../../hooks/useFetchDocuments';
+
+import { GrEdit } from 'react-icons/gr'
 
 export default function Accounts() {
 
   const { user, profiles, setProfiles, setCurrentProfile } = useStateContext();
   const { documents: allProfiles } = useFetchDocuments("profiles");
 
+  const [manageProfiles, setManageProfiles] = useState(false);
+
   const navigate = useNavigate();
-  
+
   useEffect(() => {
     setProfiles([]);
-    
+
     console.log(user)
     user && allProfiles && allProfiles.forEach((item) => {
       if (item.createdBy === user.uid) {
@@ -46,17 +50,19 @@ export default function Accounts() {
             <ul className='accounts__list'>
               {profiles &&
                 profiles.map((item, key) => (
-                  <AccountsCard
-                    key={key}
-                    link={"/browse"}
-                    name={item.name}
-                    avatar={item.avatar}
-                    onClick={() => handleProfile(item)}
-                  />
+                  <li className='accounts__item'>
+                    <AccountsCard
+                      key={key}
+                      link={"/browse"}
+                      profile={item}
+                      onClick={() => handleProfile(item)}
+                      manageProfiles={manageProfiles}
+                    />
+                  </li>
                 ))}
               <AccountsCard
                 link="/new-profile"
-                name="Adicionar perfil"
+                profile={{name: "Adicionar Perfil"}}
                 bg="5"
                 customClass='prof--ad'
               >
@@ -64,7 +70,12 @@ export default function Accounts() {
               </AccountsCard>
             </ul>
             <div className='accounts__edit'>
-              <a href="#!">Gerenciar perfis</a>
+              {!manageProfiles &&
+                <button onClick={() => setManageProfiles(!manageProfiles)}>Gerenciar perfis</button>
+              }
+              {manageProfiles &&
+                <button onClick={() => setManageProfiles(!manageProfiles)}>Concluído</button>
+              }
             </div>
           </div>
         </main>

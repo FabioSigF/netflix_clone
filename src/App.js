@@ -18,6 +18,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import { useStateContext } from "./context/ContextProvider";
 import { useAuthentication } from "./hooks/useAuthentication";
 import NewProfile from "./pages/NewProfile/NewProfile";
+import EditProfile from "./pages/EditProfile/EditProfile";
 
 
 export default function App() {
@@ -147,6 +148,11 @@ export default function App() {
           path="/new-profile"
           element={<NewProfile />}
         />
+        <Route
+          path="/edit-profile/:id"
+          element={<EditProfile />}
+        />
+
         <Route path="/browse"
           element={
             localStorage.getItem("currentProfile") ?
