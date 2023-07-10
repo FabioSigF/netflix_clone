@@ -2,10 +2,9 @@ import React, { useState, useEffect } from 'react';
 import Loading from "../../layout/Loading";
 import Header from "../../layout/Header";
 import MenuBottom from '../../layout/MenuBottom';
-import MovieInfo from '../../components/MovieInfo';
 import { Outlet } from 'react-router-dom';
 import { useStateContext } from '../../context/ContextProvider';
-export default function Home({ movieList, movieInfo }) {
+export default function Home({ movieList }) {
 
   const [loading, setLoading] = useState(true);
 

@@ -7,6 +7,7 @@ import InputForm from "../../components/InputForm";
 import { useAuthentication } from "../../hooks/useAuthentication";
 import { useStateContext } from "../../context/ContextProvider";
 
+import bg from '../../imgs/pages/initial/bg.jpg'
 export default function Login() {
 
   const [email, setEmail] = useState('');
@@ -60,7 +61,7 @@ export default function Login() {
       </header>
 
       <main>
-        <div className="login__bg">
+        <div className="login__bg" style={{backgroundImage: `url(${bg})`}}>
           <div className="login__form">
             <Form title="Entrar" onClick={(e) => handleSubmit(e)}>
               {error && (

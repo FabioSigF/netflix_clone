@@ -7,6 +7,8 @@ import Container from "../../auxiliar/Container";
 import InputEmail from "../../components/InputEmail";
 import FAQ from "../../components/FAQ";
 
+import bg from '../../imgs/pages/initial/bg.jpg'
+
 const dadosHome = dados.initialText.home;
 const dadosBenefits = dados.initialText.benefits;
 export default function Initial() {
@@ -30,7 +32,7 @@ export default function Initial() {
 
       </header>
       <main>
-        <section className="initial__section initial__home ">
+        <section className="initial__section initial__home " style={{backgroundImage: `url(${bg})`}}>
           <div className="initial__home__container flex flex_ai_c">
             <h1 className="initial__title">{dadosHome.title}</h1>
             <h2 className="initial__subtitle">{dadosHome.subtitle}</h2>

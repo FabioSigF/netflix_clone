@@ -1,6 +1,4 @@
-import React, { useState } from "react";
-import { FaCaretDown } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import React from "react";
 import FeatureMovie from "../../../components/FeatureMovie";
 import MovieRow from "../../../components/MovieRow";
 

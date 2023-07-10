@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/static/css/main.14f856c6.css",
+    "main.js": "/static/js/main.640774ec.js",
+    "static/media/bgSectionOne.png": "/static/media/bgSectionOne.eca28afbba8eaae5f3b6.png",
+    "static/media/bgSectionFour.png": "/static/media/bgSectionFour.803f237135424e5bcc13.png",
+    "static/media/bgSectionTwo.png": "/static/media/bgSectionTwo.4d168f532ba8168ea672.png",
+    "static/media/bg.jpg": "/static/media/bg.d7e525573d9c4b8905fd.jpg",
+    "static/media/bgSectionThree.png": "/static/media/bgSectionThree.b72f06fecde13a091732.png",
+    "static/media/logo_mobile.png": "/static/media/logo_mobile.9cfb17f1e4dcd29d61d1.png",
+    "static/media/netflix-loading.gif": "/static/media/netflix-loading.cc57505c5e960b293957.gif",
+    "static/media/logo.png": "/static/media/logo.f6fefaddb9d3a2f03ab5.png",
+    "index.html": "/index.html",
+    "main.14f856c6.css.map": "/static/css/main.14f856c6.css.map",
+    "main.640774ec.js.map": "/static/js/main.640774ec.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.14f856c6.css",
+    "static/js/main.640774ec.js"
+  ]
+}
