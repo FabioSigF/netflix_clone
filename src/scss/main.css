@@ -1420,6 +1420,117 @@ button {
   left: 0.5rem;
 }
 
+.profileEditAvatar__img {
+  width: 115px;
+  height: 115px;
+  border-radius: 4px;
+}
+.profileEditAvatar--container {
+  position: relative;
+}
+.profileEditAvatar--button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: absolute;
+  background-color: #e50914;
+  border-radius: 4px;
+  padding: 0.2rem;
+  bottom: 0.4rem;
+  left: 0.4rem;
+}
+.profileEditAvatar--button:hover {
+  background-color: #b9090b;
+}
+
+.profileEditAvatar__iconList {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  height: 90vh;
+  border: 1px solid #999999;
+  background-color: rgba(0, 0, 0, 0.7);
+  width: 100%;
+  max-width: 580px;
+  padding: 1rem;
+  overflow-y: scroll;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  /* ===== Scrollbar CSS ===== */
+  /* Firefox */
+  /* Chrome, Edge, and Safari */
+}
+.profileEditAvatar__iconList {
+  scrollbar-width: thin;
+  scrollbar-color: #808080 #333;
+}
+.profileEditAvatar__iconList::-webkit-scrollbar {
+  width: 10px;
+}
+.profileEditAvatar__iconList::-webkit-scrollbar-track {
+  background: #333;
+}
+.profileEditAvatar__iconList::-webkit-scrollbar-thumb {
+  background-color: #808080;
+  border-radius: 10px;
+  border: 3px solid #333;
+}
+.profileEditAvatar__iconList__title {
+  padding-bottom: 0.5rem;
+  font-weight: 500;
+  font-size: 1.625rem;
+}
+.profileEditAvatar__iconList__list {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.profileEditAvatar__iconList__list .swiper-button-prev,
+.profileEditAvatar__iconList__list .swiper-button-next {
+  background-color: rgba(0, 0, 0, 0.7);
+  height: 100px;
+  width: 40px;
+  top: 22px;
+}
+.profileEditAvatar__iconList__list .swiper-button-prev::after,
+.profileEditAvatar__iconList__list .swiper-button-next::after {
+  color: #fff;
+  font-size: 1.125rem;
+}
+.profileEditAvatar__iconList__list .swiper-button-prev {
+  left: 0;
+}
+.profileEditAvatar__iconList__list .swiper-button-next {
+  right: 0;
+}
+.profileEditAvatar__iconList__list .swiper-button-disabled {
+  display: none;
+  visibility: hidden;
+}
+.profileEditAvatar__iconList__icon {
+  width: 100px;
+  height: 100px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.profileEditAvatar__iconList__close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 1.625rem;
+  color: #fff;
+  cursor: pointer;
+}
+.profileEditAvatar__iconList__close:hover {
+  color: #999999;
+}
+
 .accounts {
   position: relative;
   background: linear-gradient(to bottom, rgb(16, 16, 16), rgb(39, 39, 39));
@@ -1468,7 +1579,6 @@ button {
   border: 1px solid #fff;
   color: #fff;
   font-size: 1.3rem;
-  font-weight: 600;
   opacity: 0.7;
   transition: opacity 200ms ease;
 }
@@ -1874,14 +1984,14 @@ button {
   }
 }
 .newProfile__wrapper {
-  width: 100%;
+  position: relative;
+  width: 100vw;
   height: 100vh;
   display: flex;
   align-items: center;
-  justify-content: center;
 }
 .newProfile__content {
-  position: relative;
+  margin: 0 auto;
 }
 .newProfile__content__title {
   font-size: 3.125rem;
@@ -1903,29 +2013,6 @@ button {
   padding-bottom: 1rem;
   margin-bottom: 1rem;
 }
-.newProfile__form__avatar {
-  width: 115px;
-  height: 115px;
-  border-radius: 4px;
-}
-.newProfile__form__avatar--container {
-  position: relative;
-}
-.newProfile__form__avatar--button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  position: absolute;
-  background-color: #e50914;
-  border-radius: 4px;
-  padding: 0.2rem;
-  bottom: 0.4rem;
-  left: 0.4rem;
-}
-.newProfile__form__avatar--button:hover {
-  background-color: #b9090b;
-}
 .newProfile__form__buttons {
   display: flex;
   gap: 1rem;
@@ -1939,68 +2026,6 @@ button {
 .newProfile__form__buttons__cancel:hover {
   color: #fff;
   border-color: #fff;
-}
-.newProfile__avatar {
-  position: absolute;
-  top: 1rem;
-  left: auto;
-  right: auto;
-  height: 90vh;
-  border: 1px solid #999999;
-  background-color: rgba(0, 0, 0, 0.7);
-  width: 90%;
-  max-width: 580px;
-  padding: 1rem;
-  overflow-y: scroll;
-  z-index: 999;
-}
-.newProfile__avatar__title {
-  padding-bottom: 1rem;
-  font-size: 1.625rem;
-}
-.newProfile__avatar__list {
-  position: relative;
-  display: flex;
-  align-items: center;
-}
-.newProfile__avatar__list .swiper-button-prev,
-.newProfile__avatar__list .swiper-button-next {
-  background-color: rgba(0, 0, 0, 0.7);
-  height: 100px;
-  width: 40px;
-  top: 22px;
-}
-.newProfile__avatar__list .swiper-button-prev::after,
-.newProfile__avatar__list .swiper-button-next::after {
-  color: #fff;
-  font-size: 1.125rem;
-}
-.newProfile__avatar__list .swiper-button-prev {
-  left: 0;
-}
-.newProfile__avatar__list .swiper-button-next {
-  right: 0;
-}
-.newProfile__avatar__list .swiper-button-disabled {
-  display: none;
-  visibility: hidden;
-}
-.newProfile__avatar__icon {
-  width: 100px;
-  height: 100px;
-  border-radius: 4px;
-  cursor: pointer;
-}
-.newProfile__avatar__close {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  font-size: 1.625rem;
-  color: #fff;
-  cursor: pointer;
-}
-.newProfile__avatar__close:hover {
-  color: #999999;
 }
 
 .editProfile__button {

@@ -1,27 +1,19 @@
 import React, { useState } from 'react'
+
+//Components
 import Button from '../../components/Button/Button'
-import { useNavigate } from 'react-router-dom'
 import InputForm from '../../components/InputForm/InputForm';
+import ProfileEditAvatar from '../../components/ProfileEditAvatar/ProfileEditAvatar';
+
+//Hooks
+import { useNavigate } from 'react-router-dom'
 import { useInsertDocument } from '../../hooks/useInsertDocument';
 import { useStateContext } from '../../context/ContextProvider';
-import { BiEdit } from 'react-icons/bi'
-import { profileAvatarData } from './profileAvatarData'
-// Import Swiper React components
-import { Swiper, SwiperSlide, } from 'swiper/react';
-
-// Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/navigation';
-
-// import required modules
-import { Navigation } from 'swiper/modules';
-import { IoClose } from 'react-icons/io5';
 
 
 export default function NewProfile() {
 
   const [name, setName] = useState("");
-  const [openAvatar, setOpenAvatar] = useState(false);
   const [imageURL, setImageURL] = useState("https://occ-0-3750-3852.1.nflxso.net/dnm/api/v6/K6hjPJd6cR6FpVELC5Pd6ovHRSk/AAAABcD0ZrsIMMPdVENlhcMLhAEQsGSplhivXwxPolt5h1wP1bquIL83x4fkrS6we4cwNWTe1nn7exw7GDMLe-72PiRcoMIBjdjmmA.png?r=b39");
 
   const { insertDocument, response } = useInsertDocument("profiles");
@@ -45,11 +37,6 @@ export default function NewProfile() {
     navigate("/accounts")
   }
 
-  const changeAvatar = (icon) => {
-    setImageURL(icon);
-    setOpenAvatar(!openAvatar);
-  }
-
   return (
     <div className='newProfile__wrapper'>
       <div className="newProfile__content">
@@ -61,16 +48,10 @@ export default function NewProfile() {
         </p>
         <form className="newProfile__form">
           <div className='newProfile__form__content'>
-            <div className="newProfile__form__avatar--container">
-              <img src={imageURL} alt="Temporary avatar"
-                className='newProfile__form__avatar'
-              />
-              <div className="newProfile__form__avatar--button"
-                onClick={() => setOpenAvatar(!openAvatar)}
-              >
-                <BiEdit />
-              </div>
-            </div>
+            <ProfileEditAvatar
+              imageURL={imageURL}
+              setImageURL={setImageURL}
+            />
             <InputForm
               type="text"
               name="name"
@@ -80,9 +61,9 @@ export default function NewProfile() {
             />
           </div>
           <div className="newProfile__form__buttons">
-            <Button 
+            <Button
               title="Criar Perfil"
-              onClick={(e)=>addProfile(e)}
+              onClick={(e) => addProfile(e)}
             />
             <button
               className='newProfile__form__buttons__cancel'
@@ -91,43 +72,6 @@ export default function NewProfile() {
           </div>
         </form>
       </div>
-      {openAvatar && (
-        <>
-          <div className="newProfile__avatar">
-            {profileAvatarData.map((serie, key) => (
-              <div key={key}>
-                <h3 className="newProfile__avatar__title">{serie.title}</h3>
-                <Swiper
-                  slidesPerView={5}
-                  spaceBetween={15}
-                  navigation={true}
-                  mousewheel={true}
-                  keyboard={true}
-                  modules={[Navigation]}
-                  className="mySwiper newProfile__avatar__list"
-                >
-                  {serie.icons.map((icon, key) => (
-                    <SwiperSlide key={key}
-                    >
-                      <img
-                        src={icon}
-                        alt={serie.title}
-                        className="newProfile__avatar__icon"
-                        onClick={()=> changeAvatar(icon)}
-                      />
-                    </SwiperSlide>
-                  ))}
-                </Swiper>
-              </div>
-            ))}
-            <div className="newProfile__avatar__close"
-            onClick={()=>setOpenAvatar(!openAvatar)}
-            >
-              <IoClose />
-            </div>
-          </div>
-        </>
-      )}
     </div>
   )
 }

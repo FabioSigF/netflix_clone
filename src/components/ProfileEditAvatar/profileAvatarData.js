@@ -67,7 +67,7 @@ export const profileAvatarData = [
     ],
   },
   {
-    title: "Lucifer",
+    title: "Lúcifer",
     icons: [
       "https://occ-0-3750-3852.1.nflxso.net/dnm/api/v6/K6hjPJd6cR6FpVELC5Pd6ovHRSk/AAAABQnnytfA7YTgG136xqjbPbGKUZokiZR58TnXliSzuyq1tY6CDqtvPMAUn5MBdEQB-pf98OWXjI9pZk0BaXy4Xwse7nJn1betaQ.png?r=2c8",
       "https://occ-0-3750-3852.1.nflxso.net/dnm/api/v6/K6hjPJd6cR6FpVELC5Pd6ovHRSk/AAAABQ6i9b30tRhZVeL3nbGu-ZNfZTFtr3XxCEYRQn6Bda6PZ51B9HjoOiRVulR95rdAcH4mlGtj3z7iLzoMYX_c0jJd03Qu3NebZA.png?r=c99",
@@ -78,6 +78,56 @@ export const profileAvatarData = [
       "https://occ-0-3750-3852.1.nflxso.net/dnm/api/v6/K6hjPJd6cR6FpVELC5Pd6ovHRSk/AAAABSuSY4s5VCHAXHRIRysJ4S-e0opazf1XL_TpKmEBJqALeWN4a0jG7dq8INtN-rUnVgdlC4UMPkgha6ZiZpTy2DU_IRKqe8gJYQ.png?r=6d9",
       "https://occ-0-3750-3852.1.nflxso.net/dnm/api/v6/K6hjPJd6cR6FpVELC5Pd6ovHRSk/AAAABXqhp11o45YG22NLBYsIg8l_TIIPoiPF5Vpuao8QYU3jS_8Gek_uqfqKGeTOhIZUSzcaUId0s1NJyTTrQat5bT5__pvqHsKiCQ.png?r=d9d",
     ],
+  },
+  {
+    title: "Arcane",
+    icons: [
+      "https://occ-0-3750-3852.1.nflxso.net/dnm/api/v6/K6hjPJd6cR6FpVELC5Pd6ovHRSk/AAAABR-76XnDIpgI9Y5AxW-0mbA8XM6pBawp8AEibixll-x2uzc_tTvqVvqd5gGF2lU_yNwUWSvCvw89O0nfyLklL0_2f8nZ6y0MHg.png?r=87b",
+      "https://occ-0-3750-3852.1.nflxso.net/dnm/api/v6/K6hjPJd6cR6FpVELC5Pd6ovHRSk/AAAABR5B1N6qdVLwa9eIOAaRsX7U6BLMvU2MQokenKJzKGmpRmVIUnwUEmUcIhsDZ9cKxrtOlLUv-4jhQXEukuScGykev4v3yZyr6A.png?r=e31",
+      "https://occ-0-3750-3852.1.nflxso.net/dnm/api/v6/K6hjPJd6cR6FpVELC5Pd6ovHRSk/AAAABeUlDPnL-8sDn5Ljg_uQhgbbAQm9tI_y9a6v0KN5zi2uw1NbaDSPXkcLdKRV_MtR_NPlGH2SRbpvd2zpuRanqnIOln_yZYOOew.png?r=375",
+      "https://occ-0-3750-3852.1.nflxso.net/dnm/api/v6/K6hjPJd6cR6FpVELC5Pd6ovHRSk/AAAABd1B2sFZv59PCVFdhL-OXENKv6XIPZ0Q5XZ0v096ELca6ac_8SKNluPF5ydSf4wwn9G0AonvGNb2DtMbw3rOtK-WRcXbTzd4LpLY.png?r=2da",
+      "https://occ-0-3750-3852.1.nflxso.net/dnm/api/v6/K6hjPJd6cR6FpVELC5Pd6ovHRSk/AAAABYbdfggp3sDnDL8-6_1l2nVcBlaGBIrqan9YncHNLYTrE84p3vfGXG8j7L5QTGVqGZDDNOSEttBn8hxY-0JbVRPpGzmZgnauzg.png?r=725",
+      "https://occ-0-3750-3852.1.nflxso.net/dnm/api/v6/K6hjPJd6cR6FpVELC5Pd6ovHRSk/AAAABaUgUR39S276ExdMITZ4IvMeU-XzAyz3U4nZdVvK_JashVEouFEBgVzKBSgRIWShAjP8QWqCobBzwdwGfJYb86vIxs5Z3lZh8w.png?r=a4f",
+      "https://occ-0-3750-3852.1.nflxso.net/dnm/api/v6/K6hjPJd6cR6FpVELC5Pd6ovHRSk/AAAABcruXWMp4HEU9etszTjYel-hybAhenNmJqjmsTXkRh6dW_3hX1Iph45UcR1MyjBV3ZvE5PW4YJB_8mMlvm6uE38xzJ_Sfhmbzg.png?r=bfe",
+      "https://occ-0-3750-3852.1.nflxso.net/dnm/api/v6/K6hjPJd6cR6FpVELC5Pd6ovHRSk/AAAABVISHhAUv9DsxyH9PA_bZSH8t6v7oKqZQ8I_D-rkL_20-PMDRhIy_GsMhL--GXhPE2qkTJHK1gKw8sC8tyKOnwTVkyvns574DA.png?r=5f0",
+      "https://occ-0-3750-3852.1.nflxso.net/dnm/api/v6/K6hjPJd6cR6FpVELC5Pd6ovHRSk/AAAABdvLM8rEOj3E7e5L-yff49pFDCYrOaKfdYGjAw00QXEgEHm7vc1mhbVRsjt_fby8w9C5Bnu3phGJkaiCb2ADg27i5fqWaEiLYg.png?r=a40",
+      "https://occ-0-3750-3852.1.nflxso.net/dnm/api/v6/K6hjPJd6cR6FpVELC5Pd6ovHRSk/AAAABUI4RrOFewQCOF_c08YV5C095954HMgpL2X8OrXig7JDX8XqWqky5kArdworjSTpKZuUrrXpApNwp-4uovF4NiatQMn-0oO6sw.png?r=130"
+    ]
+  },
+  {
+    title: "Sonic Prime",
+    icons: [
+      "https://occ-0-3750-3852.1.nflxso.net/dnm/api/v6/K6hjPJd6cR6FpVELC5Pd6ovHRSk/AAAABXd1ouS2QWXFFxzMf5UP2i5J7B_zTPQh9TyvuUicE2GRiK04-vxAhbdTt54roYYIQYDGOtXGhul4HPDXSh9kM4xZ0Fnt04JEEQ.png?r=0aa",
+      "https://occ-0-3750-3852.1.nflxso.net/dnm/api/v6/K6hjPJd6cR6FpVELC5Pd6ovHRSk/AAAABSu7vTcLsqapL1tWbSKc-Ac70mFst-qkclkO1SY3b2-MQsAhM5tCmBQbSqORBobdaLxpYhqeECA2ebA57GhlptujRayBZLOx6A.png?r=ec1",
+      "https://occ-0-3750-3852.1.nflxso.net/dnm/api/v6/K6hjPJd6cR6FpVELC5Pd6ovHRSk/AAAABQ1QyQM7KlZtw3A0yC4Gf-TsjFkQCw59OLaMmUbaQnudIX5CPscJ7hcoifVKY8jruYv7soLo23qZAioWtzJ-nXMmYqiFIkdm7A.png?r=936",
+      "https://occ-0-3750-3852.1.nflxso.net/dnm/api/v6/K6hjPJd6cR6FpVELC5Pd6ovHRSk/AAAABT6-LOQW_gu6GkRjoGGNfeoX9KPwZV3xbB6gLADcUkBRQhvgHykaeI7slX5dQFo0gOMA3xBO3VQbtqNOfJe_RGQ-a1TZpOJWnw.png?r=a66",
+      "https://occ-0-3750-3852.1.nflxso.net/dnm/api/v6/K6hjPJd6cR6FpVELC5Pd6ovHRSk/AAAABdETdcH2V_iB1oYx3ioGmK0MXam7Phj8xRgNXlQNuCIRoZ9jLoxXvL6ju-PrLCo14XHdkeJme_uOfTAli1A3769H9zkXEZ1-oQ.png?r=dae",
+      "https://occ-0-3750-3852.1.nflxso.net/dnm/api/v6/K6hjPJd6cR6FpVELC5Pd6ovHRSk/AAAABaFa_vc5fm0o8MTNvYONEvC__gN_MpcKaaqC-uyE3jbBzwcVaZeCxURwzwwO-_R4OvVJz4HTVfa51WeMOolNo6B0d4Set9Okkg.png?r=424",
+      "https://occ-0-3750-3852.1.nflxso.net/dnm/api/v6/K6hjPJd6cR6FpVELC5Pd6ovHRSk/AAAABQXiu0n2VC9Z_8KRk4XwAGaMK9dTYXVNSaDIcGCWiYvT3_fYkSv-Olt8xqs2WVD2_JESLY18jxjK4D3pw4hZwfBSNi33MaZORw.png?r=7ae",
+      "https://occ-0-3750-3852.1.nflxso.net/dnm/api/v6/K6hjPJd6cR6FpVELC5Pd6ovHRSk/AAAABe3Q10l5LiIK9HU2JZA-q6CL2Xd2PJcNvzCdtansnkOsPkgo78sKKyzyEc4IXpkMkR66lAQajoZkkS8_L-VQX_kZ6mQWVN5FPA.png?r=24e"
+    ]
+  },
+  {
+    title: "Desencanto",
+    icons: [
+      "https://occ-0-3750-3852.1.nflxso.net/dnm/api/v6/K6hjPJd6cR6FpVELC5Pd6ovHRSk/AAAABZLyb430y4UtBTwHUKOeUt7ESSCyiG_sbTy6lnLzLB0XS3VjiJ8HcN9Fa67VjtbXr2k-eP1vDIfszx69-ebMOD0k5ilaLtXgjQ.png?r=69d",
+      "https://occ-0-3750-3852.1.nflxso.net/dnm/api/v6/K6hjPJd6cR6FpVELC5Pd6ovHRSk/AAAABVTvCzw4U16jVuLWNayt3_NWQQ5rlkgZTD6GaE2uCZIq3TLDv5fHhPOvACEOLokC4b2n41_r4Ya6xmeHGIrkoZce_kXhwEPZMw.png?r=4e1",
+      "https://occ-0-3750-3852.1.nflxso.net/dnm/api/v6/K6hjPJd6cR6FpVELC5Pd6ovHRSk/AAAABSwgTGdQ10_g7S40OTUOZyuo_rI67XiWBqLuavAUpwPLHazdnhEqlQVhNoNpU9N5s7ffdmHsrDYYBsCT2UAGXXi2ppwi_kU0Qg.png?r=5eb",
+      "https://occ-0-3750-3852.1.nflxso.net/dnm/api/v6/K6hjPJd6cR6FpVELC5Pd6ovHRSk/AAAABeKmsTiFrCGj6QTnFHw89IaNC7_KxW-G20Af8S42eDOuKlGsUm40uCrNdtQ0-w9BwUbLeOnIhAnliAbW6EPlhEkm8CKGC5MXXQ.png?r=bba",
+      "https://occ-0-3750-3852.1.nflxso.net/dnm/api/v6/K6hjPJd6cR6FpVELC5Pd6ovHRSk/AAAABQ_SE8nWtfunDbhH1YG2VNnQJdnGTuKXLFy-1034EbiGTd6jjUI30f7XesxyYxHnkR1go22UblG8DtezXfrJFT8lHsZgUatfJw.png?r=ddf",
+      "https://occ-0-3750-3852.1.nflxso.net/dnm/api/v6/K6hjPJd6cR6FpVELC5Pd6ovHRSk/AAAABQA2ezuC_r7yRxBeCgk-NhOLxj59K5zDt1GCljVfBezTLIhnoj9q65JbqoekVXK7oVPrekv4oyyW3ifBi7hJ2v_uQETI3gzo-g.png?r=2fb"
+    ]
+  },
+  {
+    title: "Caçadores de Trolls",
+    icons: [
+      "https://occ-0-3750-3852.1.nflxso.net/dnm/api/v6/K6hjPJd6cR6FpVELC5Pd6ovHRSk/AAAABZ5z-wVShZixhCjHUQ8EvaeXvNvwzzckh4naYDkNCjMTtasN5j2WADWtGEiDutvi-P6RRiRBhrtYH5VWyEe3fAXKqSOJd2RM0A.png?r=830",
+      "https://occ-0-3750-3852.1.nflxso.net/dnm/api/v6/K6hjPJd6cR6FpVELC5Pd6ovHRSk/AAAABUYod0r6LSYusIQ10hu52rFSzMOYrim2NKJv2L0-FQZuniyq1db0RUhz6P9F1pgfM1LNtnyit_Q4AvjZ_r49rn9sGMe7dMLQQA.png?r=dd4",
+      "https://occ-0-3750-3852.1.nflxso.net/dnm/api/v6/K6hjPJd6cR6FpVELC5Pd6ovHRSk/AAAABep-xqKYwyY0b_9j-SbORyiut_3nQBNGRgciGfV-NwBreTH1HauAu2pv4wP_-oTazVmaYYlHQO8zU-U6-V_-PIpN1ULaiCkjmQ.png?r=a60",
+      "https://occ-0-3750-3852.1.nflxso.net/dnm/api/v6/K6hjPJd6cR6FpVELC5Pd6ovHRSk/AAAABUHLVze13OUplj5h18j5n8yLfwYPXW7CWhY0RjdRd8ui1RNthu0Ps_LTpemKKc3zcMsUm9bbuZwYA1_A5vhyaosGqxPqkZ_a8w.png?r=db6",
+      "https://occ-0-3750-3852.1.nflxso.net/dnm/api/v6/K6hjPJd6cR6FpVELC5Pd6ovHRSk/AAAABatFMZFPi4WnxkKccThjCXYNfQsasJjFTK9Gp_TjmJYzIRKFQNfOyMjbag5E6S2wKvPOE9lOvjK9ZT9DE0f69BOUU4UaS1lLhg.png?r=99a",
+      "https://occ-0-3750-3852.1.nflxso.net/dnm/api/v6/K6hjPJd6cR6FpVELC5Pd6ovHRSk/AAAABcmVjyrNtjQZQztgJL85s4klWt-7FfQbQFLT0XzBWnxOjUmdtlUco0FwM7lYdiJB0ii9TMgthP8F0smZmZmgowvCvoJzxAsThg.png?r=7f1",
+      "https://occ-0-3750-3852.1.nflxso.net/dnm/api/v6/K6hjPJd6cR6FpVELC5Pd6ovHRSk/AAAABU1ppCyxfKJBpUgEqckKkY3Og3Uq23HkpcZfs7p0A41k7FUb7wYXhNgPu3w-OAzK1UEjjPHm2kHe0n_oR13sbhAN9qrKzNun9Q.png?r=a71"
+    ]
   }
-
 ]

@@ -64,7 +64,7 @@ export default function Menu() {
         </div>
         <Notification />
         <div className="menu__user__profile flex flex_ai_c">
-          <a href="/browse" className="menu__user__icon">
+          <a href="/accounts" className="menu__user__icon">
             <img src={currentProfile ? currentProfile.avatar : currentProfileStorage.avatar} alt={currentProfileStorage.name} />
           </a>
           <div className="menu__user__profile_btn">

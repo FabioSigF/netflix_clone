@@ -1,23 +1,13 @@
 import React, { useEffect, useState } from 'react'
+
+//Components
 import Button from '../../components/Button/Button'
-import { useNavigate, useParams } from 'react-router-dom'
 import InputForm from '../../components/InputForm/InputForm';
+import ProfileEditAvatar from '../../components/ProfileEditAvatar';
+
+//Hooks
 import { useStateContext } from '../../context/ContextProvider';
-import { BiEdit } from 'react-icons/bi'
-import { profileAvatarData } from '../NewProfile/profileAvatarData'
-// Import Swiper React components
-import { Swiper, SwiperSlide, } from 'swiper/react';
-
-// Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/navigation';
-
-// import required modules
-import { Navigation } from 'swiper/modules';
-
-import { IoClose } from 'react-icons/io5';
-
-
+import { useNavigate, useParams } from 'react-router-dom'
 import { useUpdateDocument } from '../../hooks/useUpdateDocument';
 import { useFetchDocument } from '../../hooks/useFetchDocument';
 import { useDeleteDocument } from '../../hooks/useDeleteDocument';
@@ -35,17 +25,12 @@ export default function EditProfile() {
 
   const [deleteProfile, setDeleteProfile] = useState(false);
   const [name, setName] = useState("");
-  const [openAvatar, setOpenAvatar] = useState(false);
+
   const [imageURL, setImageURL] = useState("");
   const [formError, setFormError] = useState("");
   const { user } = useStateContext();
 
   const navigate = useNavigate();
-
-  const changeAvatar = (icon) => {
-    setImageURL(icon);
-    setOpenAvatar(!openAvatar);
-  }
 
   useEffect(() => {
 
@@ -98,16 +83,10 @@ export default function EditProfile() {
         </p>
         <form className="newProfile__form">
           <div className='newProfile__form__content'>
-            <div className="newProfile__form__avatar--container">
-              <img src={imageURL} alt="Temporary avatar"
-                className='newProfile__form__avatar'
-              />
-              <div className="newProfile__form__avatar--button"
-                onClick={() => setOpenAvatar(!openAvatar)}
-              >
-                <BiEdit />
-              </div>
-            </div>
+            <ProfileEditAvatar 
+              imageURL={imageURL}
+              setImageURL={setImageURL}
+            />
             <InputForm
               type="text"
               name="name"
@@ -135,43 +114,7 @@ export default function EditProfile() {
           </div>
         </form>
       </div>
-      {openAvatar && (
-        <>
-          <div className="newProfile__avatar">
-            {profileAvatarData.map((serie, key) => (
-              <div key={key}>
-                <h3 className="newProfile__avatar__title">{serie.title}</h3>
-                <Swiper
-                  slidesPerView={5}
-                  spaceBetween={15}
-                  navigation={true}
-                  mousewheel={true}
-                  keyboard={true}
-                  modules={[Navigation]}
-                  className="mySwiper newProfile__avatar__list"
-                >
-                  {serie.icons.map((icon, key) => (
-                    <SwiperSlide key={key}
-                    >
-                      <img
-                        src={icon}
-                        alt={serie.title}
-                        className="newProfile__avatar__icon"
-                        onClick={() => changeAvatar(icon)}
-                      />
-                    </SwiperSlide>
-                  ))}
-                </Swiper>
-              </div>
-            ))}
-            <div className="newProfile__avatar__close"
-              onClick={() => setOpenAvatar(!openAvatar)}
-            >
-              <IoClose />
-            </div>
-          </div>
-        </>
-      )}
+      
       {deleteProfile && (
         <div className="deleteWarning">
           <div className="newProfile__form deleteWarning__content">

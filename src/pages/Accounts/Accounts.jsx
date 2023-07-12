@@ -6,8 +6,6 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom'
 import { useFetchDocuments } from '../../hooks/useFetchDocuments';
 
-import { GrEdit } from 'react-icons/gr'
-
 export default function Accounts() {
 
   const { user, profiles, setProfiles, setCurrentProfile } = useStateContext();
