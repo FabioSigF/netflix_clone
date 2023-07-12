@@ -5,10 +5,13 @@
     height: 100vh;
     display: flex;
     align-items: center;
+
   }
 
   &__content {
     margin: 0 auto;
+    padding: 0 1rem;
+
     &__title {
       font-size: fontS(big);
       font-weight: 400;
@@ -53,4 +56,12 @@
     }
   }
 
+}
+
+@include media(tablet) {
+  .newProfile {
+    &__content {
+      padding: 0;
+    }
+  }
 }

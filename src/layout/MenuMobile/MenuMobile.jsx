@@ -1,18 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 import Logo from "../../components/Logo";
-import Categories from "./Categories";
 import Search from "../../components/Search/Search";
+import { NavLink } from "react-router-dom";
 
-export default function MenuMobile({ categories }) {
-
+export default function MenuMobile() {
+  
   const currentProfileStorage = JSON.parse(localStorage.getItem("currentProfile"));
-
+  const [menuFixed, setMenuFixed] = useState("");
+  
   function scrollBg() {
-    const menu = document.querySelector('[data-menu]');
     if (window.scrollY > 90) {
-      menu.classList.add('menuMobile--fixed');
+      setMenuFixed('menuMobile--fixed');
     } else {
-      menu.classList.remove('menuMobile--fixed');
+      setMenuFixed('');
+    }
+  }
+
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [menuStyle, setMenuStyle] = useState("");
+
+  function toggleMenu() {
+    if (menuOpen !== true) {
+      setMenuOpen(true);
+      setMenuStyle('open');
+    } else if (menuOpen === true) {
+      setMenuOpen(false);
+      setMenuStyle('');
     }
   }
 
@@ -23,12 +36,12 @@ export default function MenuMobile({ categories }) {
         <Logo />
         <div className="mb_header__icons flex flex_ai_c">
           <Search/>
-          <a href="/" className="mb_header__profile">
+          <a href="/browse" className="mb_header__profile">
             <img src={currentProfileStorage.avatar} alt={currentProfileStorage.name} />
           </a>
         </div>
       </div>
-      <nav className="menuMobile" data-menu>
+      <nav className={`menuMobile ${menuFixed}`}>
         <ul className="menuMobile__list">
           <li className="menuMobile__item">
             <a href="/browse/series" className="menuMobile__link">Séries</a>
@@ -36,14 +49,34 @@ export default function MenuMobile({ categories }) {
           <li className="menuMobile__item">
             <a href="/browse/movies" className="menuMobile__link">Filmes</a>
           </li>
-          <Categories
-            list={categories.map((item) => (
-              {
-                nome: item.title,
-                href: `/${item.slug}`
-              }
-            ))}
-          />
+          <li className="menuMobile__item">
+        <button type="button" className="menuMobile__link" onClick={toggleMenu}>Categorias</button>
+      </li>
+      <div className={`categories_container flex flex_ai_c ${menuStyle}`}>
+        <ul className="categories__list flex flex_ai_c" data-list>
+          <li className="categories__item">
+            <NavLink to="/browse" end className="categories__link" onClick={toggleMenu}>Início</NavLink>
+          </li>
+          <li className="categories__item">
+            <NavLink to="/browse/series" className="categories__link" onClick={toggleMenu} >Series</NavLink>
+          </li>
+          <li className="categories__item">
+            <NavLink to="/browse/movies" className="categories__link" onClick={toggleMenu} >Filmes</NavLink>
+          </li>
+          <li className="categories__item">
+            <NavLink to="/browse/latest" className="categories__link" onClick={toggleMenu} >Últimos lançamentos</NavLink>
+          </li>
+          <li className="categories__item">
+            <NavLink to="/browse/kids" className="categories__link" onClick={toggleMenu} >Infantil</NavLink>
+          </li>
+          <li className="categories__item">
+            <NavLink to="/browse/my-list" className="categories__link" onClick={toggleMenu}>Minha Lista</NavLink>
+          </li>
+        </ul>
+        <div className='categories__close flex' onClick={toggleMenu}>
+          <span></span>
+        </div>
+      </div>
         </ul>
       </nav>
 

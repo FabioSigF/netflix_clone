@@ -1,5 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+
+//hooks
+import { onAuthStateChanged } from "firebase/auth";
+import { useStateContext } from "./context/ContextProvider";
+import { useAuthentication } from "./hooks/useAuthentication";
+
 //Components
 import Home from './pages/Home'
 import Tmdb from "./Tmdb.js";
@@ -14,17 +20,13 @@ import MyList from "./pages/Home/MyList";
 import Browse from "./pages/Home/Browse";
 import Footer from "./layout/Footer";
 import SearchPage from "./pages/Home/SearchPage";
-import { onAuthStateChanged } from "firebase/auth";
-import { useStateContext } from "./context/ContextProvider";
-import { useAuthentication } from "./hooks/useAuthentication";
 import NewProfile from "./pages/NewProfile/NewProfile";
 import EditProfile from "./pages/EditProfile/EditProfile";
 
 
 export default function App() {
   //Context
-  const { user, setUser, screenSize, setScreenSize } = useStateContext()
-
+  const { user, setUser, setScreenSize } = useStateContext()
 
   //home
   const [featureData, setFeatureData] = useState(null);
@@ -42,8 +44,6 @@ export default function App() {
   const [latestList, setLatestList] = useState([]);
 
   const [allList, setAllList] = useState([]);
-
-  const [searchChange, setSearchChange] = useState();
 
   //Função para captar o tamanho da tela e enviar ao context
   useEffect(() => {
@@ -128,14 +128,6 @@ export default function App() {
     });
   }, [auth])
 
-  const [movieInfo, setMovieInfo] = useState('')
-
-  function openMoreInfo(item) {
-    setMovieInfo(item)
-    const movieInfo = document.querySelector('.movieInfo')
-    movieInfo.classList.add('open')
-  }
-
   return (
     <Router>
       <Routes>
@@ -161,7 +153,6 @@ export default function App() {
             localStorage.getItem("currentProfile") ?
               <Home
                 movieList={movieList}
-                movieInfo={movieInfo}
               />
               : <Navigate to="/accounts" />
           }
@@ -169,39 +160,29 @@ export default function App() {
           <Route path=""
             element={<Browse
               featureData={featureData}
-              windowWidth={screenSize}
               movieList={movieList}
-              openMoreInfo={openMoreInfo}
             />} />
           <Route path="series" element={<Browse
             title={"Séries"}
             featureData={featureSerieData}
-            windowWidth={screenSize}
             movieList={seriesList}
-            openMoreInfo={openMoreInfo}
           />} />
           <Route path="movies" element={<Browse
             title={"Filmes"}
             featureData={featureMovieData}
-            windowWidth={screenSize}
             movieList={moviesList}
-            openMoreInfo={openMoreInfo}
           />} />
           <Route path="latest" element={<Browse
-            windowWidth={screenSize}
             movieList={latestList}
-            openMoreInfo={openMoreInfo}
           />} />
           <Route path="kids" element={<Browse
             title={"Infantil"}
             featureData={featureKidsData}
-            windowWidth={screenSize}
             movieList={kidsMoviesList}
-            openMoreInfo={openMoreInfo}
           />} />
 
-          <Route path="my-list" element={user ? <MyList setMovieInfo={openMoreInfo} /> : <Navigate to="/login" />} />
-          <Route path="search" element={<SearchPage movieList={allList} searchChange={searchChange} setMovieInfo={openMoreInfo} />} />
+          <Route path="my-list" element={user ? <MyList /> : <Navigate to="/login" />} />
+          <Route path="search" element={<SearchPage movieList={allList}/>} />
         </Route>
 
         {/*USUÁRIO NÃO LOGADO */}

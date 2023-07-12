@@ -1481,6 +1481,9 @@ button {
   border-radius: 10px;
   border: 3px solid #333;
 }
+.profileEditAvatar__iconList .swiper-container .swiper-slide {
+  width: auto;
+}
 .profileEditAvatar__iconList__title {
   padding-bottom: 0.5rem;
   font-weight: 500;
@@ -1992,6 +1995,7 @@ button {
 }
 .newProfile__content {
   margin: 0 auto;
+  padding: 0 1rem;
 }
 .newProfile__content__title {
   font-size: 3.125rem;
@@ -2028,6 +2032,11 @@ button {
   border-color: #fff;
 }
 
+@media screen and (min-width: 540px) {
+  .newProfile__content {
+    padding: 0;
+  }
+}
 .editProfile__button {
   position: absolute;
   top: 0;

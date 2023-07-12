@@ -2,7 +2,7 @@ import React from "react";
 import FeatureMovie from "../../../components/FeatureMovie";
 import MovieRow from "../../../components/MovieRow";
 
-export default function Browse({ featureData, movieList, openMoreInfo, title }) {
+export default function Browse({ featureData, movieList, title }) {
 
 
   return (
@@ -23,7 +23,6 @@ export default function Browse({ featureData, movieList, openMoreInfo, title }) 
             key={key}
             title={item.title}
             items={item.items}
-            onClickItem={openMoreInfo}
           />
         ))}
       </section>

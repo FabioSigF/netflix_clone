@@ -2,7 +2,7 @@ import React from 'react';
 import Container from '../../../auxiliar/Container';
 import { useStateContext } from '../../../context/ContextProvider';
 import CardMovie from '../../../components/CardMovie/CardMovie';
-export default function SearchPage({ movieList, setMovieInfo }) {
+export default function SearchPage({ movieList }) {
 
   const { searchString } = useStateContext();
 

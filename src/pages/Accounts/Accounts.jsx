@@ -48,9 +48,8 @@ export default function Accounts() {
             <ul className='accounts__list'>
               {profiles &&
                 profiles.map((item, key) => (
-                  <li className='accounts__item'>
+                  <li className='accounts__item' key={key}>
                     <AccountsCard
-                      key={key}
                       profile={item}
                       onClick={() => handleProfile(item)}
                       manageProfiles={manageProfiles}

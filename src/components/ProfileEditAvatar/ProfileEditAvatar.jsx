@@ -43,7 +43,7 @@ export default function ProfileEditAvatar({ imageURL, setImageURL }) {
               <div key={key} className='profileEditAvatar__iconList__wrapper'>
                 <h3 className="profileEditAvatar__iconList__title">{serie.title}</h3>
                 <Swiper
-                  slidesPerView={5}
+                  slidesPerView={'auto'}
                   spaceBetween={15}
                   navigation={true}
                   mousewheel={true}
