@@ -1,14 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import Loading from "../../layout/Loading";
 import Header from "../../layout/Header";
-import MenuBottom from '../../layout/MenuBottom';
 import { Outlet } from 'react-router-dom';
-import { useStateContext } from '../../context/ContextProvider';
 export default function Home({ movieList }) {
 
   const [loading, setLoading] = useState(true);
-
-  const { screenSize } = useStateContext();
 
   //Função para simulação de loading
   useEffect(() => {
@@ -33,9 +29,6 @@ export default function Home({ movieList }) {
 
         {movieList.length <= 0 &&
           <Loading />
-        }
-        {screenSize < 1200 &&
-          <MenuBottom />
         }
       </>
     )

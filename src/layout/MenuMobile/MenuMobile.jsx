@@ -4,10 +4,10 @@ import Search from "../../components/Search/Search";
 import { NavLink } from "react-router-dom";
 
 export default function MenuMobile() {
-  
+
   const currentProfileStorage = JSON.parse(localStorage.getItem("currentProfile"));
   const [menuFixed, setMenuFixed] = useState("");
-  
+
   function scrollBg() {
     if (window.scrollY > 90) {
       setMenuFixed('menuMobile--fixed');
@@ -35,7 +35,7 @@ export default function MenuMobile() {
       <div className="mb_header__bar">
         <Logo />
         <div className="mb_header__icons flex flex_ai_c">
-          <Search/>
+          <Search />
           <a href="/browse" className="mb_header__profile">
             <img src={currentProfileStorage.avatar} alt={currentProfileStorage.name} />
           </a>
@@ -44,39 +44,33 @@ export default function MenuMobile() {
       <nav className={`menuMobile ${menuFixed}`}>
         <ul className="menuMobile__list">
           <li className="menuMobile__item">
-            <a href="/browse/series" className="menuMobile__link">Séries</a>
+            <a href="/browse" className="menuMobile__link">Início</a>
           </li>
           <li className="menuMobile__item">
-            <a href="/browse/movies" className="menuMobile__link">Filmes</a>
+            <button type="button" className="menuMobile__link" onClick={toggleMenu}>Categorias</button>
           </li>
           <li className="menuMobile__item">
-        <button type="button" className="menuMobile__link" onClick={toggleMenu}>Categorias</button>
-      </li>
-      <div className={`categories_container flex flex_ai_c ${menuStyle}`}>
-        <ul className="categories__list flex flex_ai_c" data-list>
-          <li className="categories__item">
-            <NavLink to="/browse" end className="categories__link" onClick={toggleMenu}>Início</NavLink>
+            <a href="my-list" className="menuMobile__link">Minha Lista</a>
           </li>
-          <li className="categories__item">
-            <NavLink to="/browse/series" className="categories__link" onClick={toggleMenu} >Series</NavLink>
-          </li>
-          <li className="categories__item">
-            <NavLink to="/browse/movies" className="categories__link" onClick={toggleMenu} >Filmes</NavLink>
-          </li>
-          <li className="categories__item">
-            <NavLink to="/browse/latest" className="categories__link" onClick={toggleMenu} >Últimos lançamentos</NavLink>
-          </li>
-          <li className="categories__item">
-            <NavLink to="/browse/kids" className="categories__link" onClick={toggleMenu} >Infantil</NavLink>
-          </li>
-          <li className="categories__item">
-            <NavLink to="/browse/my-list" className="categories__link" onClick={toggleMenu}>Minha Lista</NavLink>
-          </li>
-        </ul>
-        <div className='categories__close flex' onClick={toggleMenu}>
-          <span></span>
-        </div>
-      </div>
+          <div className={`categories_container flex flex_ai_c ${menuStyle}`}>
+            <ul className="categories__list flex flex_ai_c" data-list>
+              <li className="categories__item">
+                <NavLink to="/browse/series" className="categories__link" onClick={toggleMenu} >Series</NavLink>
+              </li>
+              <li className="categories__item">
+                <NavLink to="/browse/movies" className="categories__link" onClick={toggleMenu} >Filmes</NavLink>
+              </li>
+              <li className="categories__item">
+                <NavLink to="/browse/latest" className="categories__link" onClick={toggleMenu} >Últimos lançamentos</NavLink>
+              </li>
+              <li className="categories__item">
+                <NavLink to="/browse/kids" className="categories__link" onClick={toggleMenu} >Infantil</NavLink>
+              </li>
+            </ul>
+            <div className='categories__close flex' onClick={toggleMenu}>
+              <span></span>
+            </div>
+          </div>
         </ul>
       </nav>
 
