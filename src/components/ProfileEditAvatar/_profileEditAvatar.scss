@@ -70,8 +70,10 @@
     border: 3px solid colors(text-darkest);
   }
 
-  .swiper-container .swiper-slide {
-    width: auto;
+  &__wrapper {
+    .swiper-wrapper .swiper-slide {
+      width: auto;
+    }
   }
 
   &__title {

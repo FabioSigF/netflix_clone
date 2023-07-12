@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Logo from "../../components/Logo";
 import Search from "../../components/Search/Search";
 import { NavLink } from "react-router-dom";
+import MenuProfile from "../../components/MenuProfile/MenuProfile";
 
 export default function MenuMobile() {
 
@@ -36,9 +37,7 @@ export default function MenuMobile() {
         <Logo />
         <div className="mb_header__icons flex flex_ai_c">
           <Search />
-          <a href="/browse" className="mb_header__profile">
-            <img src={currentProfileStorage.avatar} alt={currentProfileStorage.name} />
-          </a>
+          <MenuProfile />
         </div>
       </div>
       <nav className={`menuMobile ${menuFixed}`}>

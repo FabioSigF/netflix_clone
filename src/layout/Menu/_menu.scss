@@ -32,30 +32,6 @@
     display: flex;
     gap: 1rem;
     align-items: center;
-
-    &__icon img{
-      border-radius: 5px;
-      width: 32px;
-      height: 32px;
-    }
-
-    &__profile {
-      gap: .5rem;
-      cursor: pointer;
-      &_btn svg {
-        transition: transform 300ms ease;
-      }
-      &:hover {
-        .menu__user__profile_btn svg{
-          transform: rotate(180deg);
-        }
-        .menu__profile {
-          visibility: visible;
-          opacity: 1;
-        }
-      }
-    }
-
   }
   &__kids a {
     color: colors(text);
@@ -130,75 +106,6 @@
     &__title {
       display: block;
       font-size: 1.375rem;
-    }
-  }
-  &__profile {
-    background-color: colors(bg-transparent-07);
-    border: 1px solid colors(text-dark);
-    position: absolute;
-    padding: 1rem .8rem;
-    height: auto;
-    width: 179px;
-    top: 71px;
-    right: 2rem;
-    font-size: .875rem;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 200ms ease;
-
-    &__caret {
-      font-size: 1.5rem;
-      top: -20px;
-      right: 27px;
-      position: absolute;
-    }
-
-    &__account {
-      gap: .5rem;
-      padding-bottom: .5rem;
-
-      &__img {
-        width: 32px;
-        height: 32px;
-        border-radius: 5px;
-      }
-      &:hover {
-        cursor: pointer;
-        .menu__profile__account__name {
-          text-decoration: underline;
-        }
-      }
-    }
-    &__accountManage button{
-      background: none;
-      border: none;
-      color: colors(text);
-      cursor: pointer;
-      padding: 1rem 0;
-      &::after {
-        content: '';
-        display: block;
-        width: 100%;
-        position: absolute;
-        left: 0;
-        padding-top: 1rem;
-        border-bottom: 1px solid colors(bg-lighter);
-      }
-      &:hover {
-        text-decoration: underline;
-      }
-    }
-    &__manage{
-      display: flex;
-      flex-direction: column;
-      gap: .5rem;
-      font-weight: 700;
-      &__link {
-        color: colors(text);
-        &:hover {
-          text-decoration: underline;
-        }
-      }
     }
   }
 }

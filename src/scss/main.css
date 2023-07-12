@@ -116,25 +116,6 @@ button {
   gap: 1rem;
   align-items: center;
 }
-.menu__user__icon img {
-  border-radius: 5px;
-  width: 32px;
-  height: 32px;
-}
-.menu__user__profile {
-  gap: 0.5rem;
-  cursor: pointer;
-}
-.menu__user__profile_btn svg {
-  transition: transform 300ms ease;
-}
-.menu__user__profile:hover .menu__user__profile_btn svg {
-  transform: rotate(180deg);
-}
-.menu__user__profile:hover .menu__profile {
-  visibility: visible;
-  opacity: 1;
-}
 .menu__kids a {
   color: #fff;
   transition: color 200ms ease;
@@ -206,72 +187,6 @@ button {
   display: block;
   font-size: 1.375rem;
 }
-.menu__profile {
-  background-color: rgba(0, 0, 0, 0.7);
-  border: 1px solid #808080;
-  position: absolute;
-  padding: 1rem 0.8rem;
-  height: auto;
-  width: 179px;
-  top: 71px;
-  right: 2rem;
-  font-size: 0.875rem;
-  opacity: 0;
-  visibility: hidden;
-  transition: all 200ms ease;
-}
-.menu__profile__caret {
-  font-size: 1.5rem;
-  top: -20px;
-  right: 27px;
-  position: absolute;
-}
-.menu__profile__account {
-  gap: 0.5rem;
-  padding-bottom: 0.5rem;
-}
-.menu__profile__account__img {
-  width: 32px;
-  height: 32px;
-  border-radius: 5px;
-}
-.menu__profile__account:hover {
-  cursor: pointer;
-}
-.menu__profile__account:hover .menu__profile__account__name {
-  text-decoration: underline;
-}
-.menu__profile__accountManage button {
-  background: none;
-  border: none;
-  color: #fff;
-  cursor: pointer;
-  padding: 1rem 0;
-}
-.menu__profile__accountManage button::after {
-  content: "";
-  display: block;
-  width: 100%;
-  position: absolute;
-  left: 0;
-  padding-top: 1rem;
-  border-bottom: 1px solid #141414;
-}
-.menu__profile__accountManage button:hover {
-  text-decoration: underline;
-}
-.menu__profile__manage {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  font-weight: 700;
-}
-.menu__profile__manage__link {
-  color: #fff;
-}
-.menu__profile__manage__link:hover {
-  text-decoration: underline;
-}
 
 .mb_header {
   flex-direction: column;
@@ -303,12 +218,6 @@ button {
 .mb_header__icons {
   justify-content: center;
   gap: 1rem;
-}
-.mb_header__icons a:not(:last-child) {
-  width: 24px;
-  height: 24px;
-  color: #fff;
-  font-size: 1.5rem;
 }
 .mb_header__profile {
   height: 32px;
@@ -1397,6 +1306,103 @@ button {
   left: 0.5rem;
 }
 
+.menuUser__profile {
+  gap: 0.5rem;
+  cursor: pointer;
+}
+.menuUser__profile_btn svg {
+  display: none;
+  transition: transform 300ms ease;
+}
+.menuUser__profile:hover .menuUser__profile_btn svg, .menuUser__profile.active .menuUser__profile_btn svg {
+  transform: rotate(180deg);
+}
+.menuUser__profile:hover .menuProfile, .menuUser__profile.active .menuProfile {
+  visibility: visible;
+  opacity: 1;
+}
+.menuUser__profile.closed .menuProfile {
+  visibility: hidden;
+  opacity: 0;
+}
+.menuUser__icon img {
+  border-radius: 5px;
+  width: 32px;
+  height: 32px;
+}
+
+.menuProfile {
+  background-color: rgba(0, 0, 0, 0.7);
+  border: 1px solid #808080;
+  position: absolute;
+  padding: 1rem 0.8rem;
+  height: auto;
+  width: 179px;
+  top: 71px;
+  right: 2rem;
+  font-size: 0.875rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 200ms ease;
+}
+.menuProfile__caret {
+  font-size: 1.5rem;
+  top: -20px;
+  right: 27px;
+  position: absolute;
+}
+.menuProfile__account {
+  gap: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+.menuProfile__account__img {
+  width: 32px;
+  height: 32px;
+  border-radius: 5px;
+}
+.menuProfile__account:hover {
+  cursor: pointer;
+}
+.menuProfile__account:hover .menuProfile__account__name {
+  text-decoration: underline;
+}
+.menuProfile__accountManage button {
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  padding: 1rem 0;
+}
+.menuProfile__accountManage button::after {
+  content: "";
+  display: block;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  padding-top: 1rem;
+  border-bottom: 1px solid #141414;
+}
+.menuProfile__accountManage button:hover {
+  text-decoration: underline;
+}
+.menuProfile__manage {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-weight: 700;
+}
+.menuProfile__manage__link {
+  color: #fff;
+}
+.menuProfile__manage__link:hover {
+  text-decoration: underline;
+}
+
+@media screen and (min-width: 540px) {
+  .menuUser__profile_btn {
+    display: block;
+  }
+}
 .profileEditAvatar__img {
   width: 115px;
   height: 115px;
@@ -1458,7 +1464,7 @@ button {
   border-radius: 10px;
   border: 3px solid #333;
 }
-.profileEditAvatar__iconList .swiper-container .swiper-slide {
+.profileEditAvatar__iconList__wrapper .swiper-wrapper .swiper-slide {
   width: auto;
 }
 .profileEditAvatar__iconList__title {

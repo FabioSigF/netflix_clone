@@ -29,12 +29,6 @@
   &__icons {
     justify-content: center;
     gap: 1rem;
-    a:not(:last-child) {
-      width: 24px;
-      height: 24px;
-      color: colors(text);
-      font-size: 1.5rem;
-    }
   }
   
   &__profile {
