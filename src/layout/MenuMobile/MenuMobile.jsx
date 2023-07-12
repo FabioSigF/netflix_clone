@@ -50,7 +50,7 @@ export default function MenuMobile() {
             <button type="button" className="menuMobile__link" onClick={toggleMenu}>Categorias</button>
           </li>
           <li className="menuMobile__item">
-            <a href="my-list" className="menuMobile__link">Minha Lista</a>
+            <a href="/browse/my-list" className="menuMobile__link">Minha Lista</a>
           </li>
           <div className={`categories_container flex flex_ai_c ${menuStyle}`}>
             <ul className="categories__list flex flex_ai_c" data-list>

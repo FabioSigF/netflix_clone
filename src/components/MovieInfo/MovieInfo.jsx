@@ -5,11 +5,14 @@ import WatchBtn from "../WatchBtn";
 import { useInsertDocument } from "../../hooks/useInsertDocument";
 import { useDeleteDocument } from "../../hooks/useDeleteDocument";
 import { useFetchDocuments } from "../../hooks/useFetchDocuments";
+import { useStateContext } from "../../context/ContextProvider";
 
 
 export default function MovieInfo({ movie, openState }) {
 
   const [movieAdd, setMovieAdd] = useState(false);
+  const {screenSize} = useStateContext();
+
 
   const { insertDocument, response } = useInsertDocument("myList");
 
@@ -44,8 +47,12 @@ export default function MovieInfo({ movie, openState }) {
   let releaseDate = new Date(movie.release_date).getFullYear();
   let description = movie.overview;
   let voteAverage = (movie.vote_average).toFixed(1);
-  if (description.length > 410) {
-    description = description.substring(0, 410) + '...';
+  
+  if (description.length > 190 && screenSize <= 540 ) {
+    description = description.substring(0, 190) + '...';
+  } else if ((description.length > 250 && screenSize > 540 ))
+  {
+    description = description.substring(0, 250) + '...';
   }
 
   function closeMovieInfo() {
@@ -67,7 +74,6 @@ export default function MovieInfo({ movie, openState }) {
 
   const checkIfMovieIsInMyList = () => {
     movies.forEach((item) => {
-      console.log(movie)
       if (((item.movieId === movie.id) || (item.movieId === movie.movieId)) && (item.uid === currentProfile)) {
         setMovieAdd(true);
       }
